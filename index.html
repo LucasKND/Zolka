@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZolkaTECH</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- AOS Library CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Zolka<span class="logo-accent">TECH</span></span>
+            </div>
+            
+            <!-- Desktop Menu -->
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#sobre" class="nav-link">Sobre</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#servicos" class="nav-link">Serviços</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#portfolio" class="nav-link">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contato" class="nav-link">Contato</a>
+                </li>
+            </ul>
+            
+            <!-- Hamburger Menu -->
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <!-- Background Light Points -->
+        <div class="bg-lights">
+            <div class="light-point light-1"></div>
+            <div class="light-point light-2"></div>
+            <div class="light-point light-3"></div>
+            <div class="light-point light-4"></div>
+            <div class="light-point light-5"></div>
+            <div class="light-point light-6"></div>
+        </div>
+        
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Inovação em
+                    <span class="hero-accent">Tecnologia</span>
+                </h1>
+                <p class="hero-description">
+                    Transformamos ideias em soluções digitais extraordinárias. 
+                    Criamos experiências que conectam marcas e pessoas através da tecnologia de ponta.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary">Nossos Projetos</button>
+                    <button class="btn btn-secondary">Fale Conosco</button>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="mockup-container" data-aos="fade-up" data-aos-duration="1000" data-aos-once="false">
+                    <!-- Notebook Mockup -->
+                    <div class="laptop-mockup" data-aos="slide-left" data-aos-duration="1200" data-aos-delay="200" data-aos-once="false">
+                        <div class="laptop-screen">
+                            <div class="laptop-content">
+                                <div class="browser-bar">
+                                    <div class="browser-dots">
+                                        <span class="dot red"></span>
+                                        <span class="dot yellow"></span>
+                                        <span class="dot green"></span>
+                                    </div>
+                                    <div class="url-bar">seusite.com.br</div>
+                                </div>
+                                <div class="website-content">
+                                    <div class="header-section"></div>
+                                    <div class="content-sections">
+                                        <div class="section"></div>
+                                        <div class="section"></div>
+                                        <div class="section small"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="laptop-base"></div>
+                    </div>
+                    
+                    <!-- Phone Mockup -->
+                    <div class="phone-mockup" data-aos="slide-right" data-aos-duration="1200" data-aos-delay="400" data-aos-once="false">
+                        <div class="phone-screen">
+                            <div class="phone-content">
+                                <div class="phone-header"></div>
+                                <div class="phone-sections">
+                                    <div class="phone-section"></div>
+                                    <div class="phone-section"></div>
+                                    <div class="phone-section small"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Segunda Section -->
+    <section class="segunda-section" id="sobre">
+        <div class="section-container">
+            <div class="section-content">
+                <h2 class="section-title">Nossos Projetos</h2>
+                <p class="section-description">Landing Pages criadas para maximizar conversões e resultados</p>
+                
+                <div class="projects-grid">
+                    <!-- LP Mockup 1 -->
+                    <div class="project-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                        <div class="project-mockup">
+                            <div class="mockup-browser">
+                                <div class="browser-header">
+                                    <div class="browser-controls">
+                                        <span class="control red"></span>
+                                        <span class="control yellow"></span>
+                                        <span class="control green"></span>
+                                    </div>
+                                    <div class="browser-url">terracodolago.kdempreendimentos.com.br</div>
+                                </div>
+                                <div class="mockup-content">
+                                    <a href="#" class="mockup-link" onclick="openModal('assets/terracodolagofullpage.jpg', 'Terraço do Lago', 'Landing page para empreendimento imobiliário com foco em conversão e design moderno.')">
+                                        <img src="assets/terracodolagofullpage.jpg" alt="Terraço do Lago Landing Page" class="hero-mockup-image">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Landing Page Conversão</h3>
+                            <p>LP focada em alta conversão com design minimalista</p>
+                        </div>
+                    </div>
+
+                    <!-- LP Mockup 2 -->
+                    <div class="project-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                        <div class="project-mockup">
+                            <div class="mockup-browser">
+                                <div class="browser-header">
+                                    <div class="browser-controls">
+                                        <span class="control red"></span>
+                                        <span class="control yellow"></span>
+                                        <span class="control green"></span>
+                                    </div>
+                                    <div class="browser-url">lancamentofloripa.luizalthoff.com</div>
+                                </div>
+                                <div class="mockup-content">
+                                    <a href="#" class="mockup-link" onclick="openModal('assets/luizalthofffullpgage.jpg', 'Luiz Althoff', 'Landing page profissional com design elegante e interface otimizada para conversão.')">
+                                        <img src="assets/luizalthofffullpgage.jpg" alt="Luiz Althoff Landing Page" class="hero-mockup-image">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>LP Profissional</h3>
+                            <p>Landing page pessoal com design elegante e profissional</p>
+                        </div>
+                    </div>
+
+                    <!-- LP Mockup 3 -->
+                    <div class="project-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                        <div class="project-mockup">
+                            <div class="mockup-browser">
+                                <div class="browser-header">
+                                    <div class="browser-controls">
+                                        <span class="control red"></span>
+                                        <span class="control yellow"></span>
+                                        <span class="control green"></span>
+                                    </div>
+                                    <div class="browser-url">projeto3.com.br</div>
+                                </div>
+                                <div class="mockup-content">
+                                    <div class="lp-header"></div>
+                                    <div class="lp-hero product">
+                                        <div class="product-showcase"></div>
+                                        <div class="product-details">
+                                            <div class="detail-item"></div>
+                                            <div class="detail-item"></div>
+                                            <div class="detail-cta"></div>
+                                        </div>
+                                    </div>
+                                    <div class="lp-pricing">
+                                        <div class="price-card"></div>
+                                        <div class="price-card featured"></div>
+                                        <div class="price-card"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>LP E-commerce</h3>
+                            <p>Otimizada para vendas online e produtos digitais</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal para visualizar imagens -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-image-container">
+                <img id="modalImage" src="" alt="Preview da Landing Page">
+            </div>
+            <div class="modal-caption">
+                <h3 id="modalTitle"></h3>
+                <p id="modalDescription"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- AOS Library JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
