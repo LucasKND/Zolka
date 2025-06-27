@@ -92,19 +92,17 @@ p {
 
 .nav-logo {
     z-index: 1001;
+    display: flex;
+    align-items: center;
 }
 
-.logo-text {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--white-primary);
-    letter-spacing: -0.03em;
+.logo-image {
+    height: 380px;
+    width: 300px;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
-.logo-accent {
-    color: var(--yellow-primary);
-}
 
 .nav-menu {
     display: flex;
@@ -240,6 +238,74 @@ p {
     letter-spacing: -0.01em;
 }
 
+/* Lista de Benefícios do Hero */
+.hero-benefits {
+    margin-bottom: 2.5rem;
+    max-width: 500px;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.875rem;
+    margin-bottom: 1.25rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.benefit-item:nth-child(1) { animation-delay: 0.1s; }
+.benefit-item:nth-child(2) { animation-delay: 0.2s; }
+.benefit-item:nth-child(3) { animation-delay: 0.3s; }
+.benefit-item:nth-child(4) { animation-delay: 0.4s; }
+
+.check-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    background: var(--yellow-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.125rem;
+    box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.check-icon svg {
+    width: 14px;
+    height: 14px;
+    stroke: var(--black-primary);
+    stroke-width: 2.5;
+}
+
+.benefit-item span {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+}
+
+.benefit-item strong {
+    color: var(--white-primary);
+    font-weight: 600;
+}
+
+.benefit-item:hover .check-icon {
+    transform: scale(1.1);
+    box-shadow: 0 4px 16px rgba(255, 215, 0, 0.4);
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .hero-buttons {
     display: flex;
     gap: 1rem;
@@ -258,32 +324,120 @@ p {
     text-decoration: none;
     display: inline-block;
     text-align: center;
-    min-width: 160px;
+    min-width: 180px;
     letter-spacing: -0.01em;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Botões Criativos */
+.creative-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1.2rem 2.5rem;
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: -0.02em;
+    border-radius: 60px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    min-width: 200px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-text {
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.btn-icon {
+    position: relative;
+    z-index: 2;
+    font-size: 1.2rem;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    opacity: 0.8;
+}
+
+.btn-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    transition: all 0.6s ease;
+    transform: translate(-50%, -50%);
+    z-index: 1;
 }
 
 .btn-primary {
-    background: var(--yellow-primary);
+    background: linear-gradient(135deg, var(--yellow-primary) 0%, var(--yellow-light) 100%);
     color: var(--black-primary);
+    border: 2px solid transparent;
+    box-shadow: 0 8px 30px rgba(255, 215, 0, 0.3);
+    animation: pulseGlow 3s ease-in-out infinite;
 }
 
 .btn-primary:hover {
-    background: var(--yellow-light);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
+    background: linear-gradient(135deg, var(--yellow-light) 0%, var(--yellow-primary) 100%);
+}
+
+.btn-primary:hover .btn-icon {
+    transform: rotate(15deg) scale(1.2);
+    opacity: 1;
+}
+
+.btn-primary:hover .btn-glow {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-primary:active {
+    transform: translateY(-1px) scale(1.02);
+}
+
+.btn-primary .btn-icon {
+    animation: floatIcon 2s ease-in-out infinite;
 }
 
 .btn-secondary {
     background: transparent;
     color: var(--white-primary);
-    border: 2px solid var(--white-primary);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.1);
 }
 
 .btn-secondary:hover {
-    background: var(--white-primary);
-    color: var(--black-primary);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px) scale(1.05);
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 40px rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover .btn-icon {
+    transform: rotate(-15deg) scale(1.2);
+    opacity: 1;
+}
+
+.btn-secondary:hover .btn-glow {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+}
+
+.btn-secondary:active {
+    transform: translateY(-1px) scale(1.02);
+}
+
+.btn-secondary .btn-icon {
+    animation: floatIcon 2.5s ease-in-out infinite;
 }
 
 /* Hero Visual - Device Mockups */
@@ -634,9 +788,22 @@ p {
 }
 
 /* Responsive Design */
+/* Tablet */
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+    .logo-image {
+        height: 120px;
+        width: 90px;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .hamburger {
         display: flex;
+    }
+    
+    .logo-image {
+        height: 120px;
+        width: 90px;
     }
     
     .nav-menu {
@@ -686,6 +853,29 @@ p {
         margin-bottom: 2rem;
     }
     
+    /* Benefícios responsivos */
+    .hero-benefits {
+        margin-bottom: 2rem;
+    }
+    
+    .benefit-item {
+        margin-bottom: 1rem;
+    }
+    
+    .benefit-item span {
+        font-size: 1rem;
+    }
+    
+    .check-icon {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .check-icon svg {
+        width: 12px;
+        height: 12px;
+    }
+    
     .hero-buttons {
         justify-content: center;
     }
@@ -718,6 +908,11 @@ p {
         padding: 0 1rem;
     }
     
+    .logo-image {
+        height: 100px;
+        width: 75px;
+    }
+    
     .hero-container {
         padding: 0 1rem;
     }
@@ -728,6 +923,28 @@ p {
     
     .hero-description {
         font-size: 1rem;
+    }
+    
+    /* Benefícios mobile */
+    .benefit-item {
+        gap: 0.75rem;
+        margin-bottom: 0.875rem;
+    }
+    
+    .benefit-item span {
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+    
+    .check-icon {
+        width: 18px;
+        height: 18px;
+        margin-top: 0.25rem;
+    }
+    
+    .check-icon svg {
+        width: 10px;
+        height: 10px;
     }
     
     .hero-buttons {
@@ -781,7 +998,7 @@ p {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 3rem;
-    margin-top: 4rem;
+    margin-top: 2rem;
 }
 
 .project-card {
@@ -789,9 +1006,10 @@ p {
     border-radius: 20px;
     padding: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: var(--transition);
+    transition: all 0.2s ease-out;
     position: relative;
     overflow: hidden;
+    transform: translateY(0);
 }
 
 .project-card::before {
@@ -803,7 +1021,7 @@ p {
     height: 200%;
     background: radial-gradient(circle, rgba(255, 215, 0, 0.03) 0%, transparent 70%);
     opacity: 0;
-    transition: var(--transition);
+    transition: opacity 0.2s ease-out;
 }
 
 .project-card:hover {
@@ -1069,10 +1287,14 @@ p {
     height: 100%;
     object-fit: cover;
     object-position: top left;
-    transition: var(--transition);
+    transition: all 0.2s ease-out;
     display: block;
     /* Simula a visualização de uma webpage real */
     min-height: 100%;
+    /* Otimização para melhor performance */
+    image-rendering: auto;
+    image-rendering: crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
 }
 
 .mockup-link:hover .hero-mockup-image {
@@ -1299,6 +1521,76 @@ p {
     font-size: 0.95rem;
 }
 
+/* Animações adicionais para os botões */
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 8px 30px rgba(255, 215, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 8px 40px rgba(255, 215, 0, 0.5);
+    }
+    100% {
+        box-shadow: 0 8px 30px rgba(255, 215, 0, 0.3);
+    }
+}
+
+@keyframes floatIcon {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-2px);
+    }
+}
+
+.btn-primary {
+    animation: pulseGlow 3s ease-in-out infinite;
+}
+
+.btn-primary .btn-icon {
+    animation: floatIcon 2s ease-in-out infinite;
+}
+
+.btn-secondary .btn-icon {
+    animation: floatIcon 2.5s ease-in-out infinite;
+}
+
+/* Efeito de loading no clique */
+.creative-btn:active .btn-text {
+    transform: scale(0.95);
+}
+
+.creative-btn:active .btn-icon {
+    transform: scale(0.9);
+}
+
+/* Responsividade dos botões criativos */
+@media (max-width: 768px) {
+    .creative-btn {
+        min-width: 160px;
+        padding: 1rem 2rem;
+        font-size: 0.9rem;
+    }
+    
+    .btn-icon {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .creative-btn {
+        min-width: 140px;
+        padding: 0.9rem 1.5rem;
+        font-size: 0.85rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+}
+
 /* Responsividade do Modal */
 @media (max-width: 768px) {
     .modal-close {
@@ -1353,5 +1645,188 @@ p {
     
     .modal-caption p {
         font-size: 0.85rem;
+    }
+}
+
+/* Terceira Section - Spotlight Cards */
+.spotlight-section {
+    padding: 8rem 0;
+    background: var(--black-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.spotlight-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.card-spotlight {
+    position: relative;
+    border-radius: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.01) 100%);
+    padding: 2rem;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+    --spotlight-color: rgba(244, 208, 78, 0.15);
+}
+
+.card-spotlight::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        600px circle at var(--mouse-x) var(--mouse-y),
+        var(--spotlight-color),
+        transparent 40%
+    );
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.card-spotlight:hover::before {
+    opacity: 1;
+}
+
+.card-spotlight:hover {
+    transform: translateY(-8px);
+    border-color: rgba(244, 208, 78, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.spotlight-card-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.spotlight-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(244, 208, 78, 0.1) 0%, rgba(244, 208, 78, 0.05) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.card-spotlight:hover .spotlight-icon {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, rgba(244, 208, 78, 0.2) 0%, rgba(244, 208, 78, 0.1) 100%);
+}
+
+.spotlight-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--white-primary);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.spotlight-description {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--white-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.spotlight-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.spotlight-features li {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--white-tertiary);
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    padding-left: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.spotlight-features li:last-child {
+    border-bottom: none;
+}
+
+.spotlight-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--yellow-primary);
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.card-spotlight:hover .spotlight-features li {
+    color: var(--white-secondary);
+}
+
+/* Responsive Design para Spotlight Cards */
+@media (max-width: 768px) {
+    .spotlight-section {
+        padding: 4rem 0;
+    }
+    
+    .spotlight-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+    
+    .card-spotlight {
+        padding: 1.5rem;
+    }
+    
+    .spotlight-icon {
+        width: 56px;
+        height: 56px;
+    }
+    
+    .spotlight-title {
+        font-size: 1.3rem;
+    }
+    
+    .spotlight-description {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .spotlight-cards-grid {
+        gap: 1rem;
+    }
+    
+    .card-spotlight {
+        padding: 1.25rem;
+    }
+    
+    .spotlight-icon {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .spotlight-title {
+        font-size: 1.2rem;
     }
 }

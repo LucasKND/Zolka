@@ -144,16 +144,21 @@ const throttledScroll = throttle(() => {
 
 window.addEventListener('scroll', throttledScroll);
 
-// Inicialização do AOS (Animate On Scroll)
+// Inicialização do AOS (Animate On Scroll) - Otimizado para performance
 document.addEventListener('DOMContentLoaded', function() {
     AOS.init({
-        duration: 1200,
-        easing: 'ease-in-out-cubic',
+        duration: 400, // Duração mais rápida
+        easing: 'ease-out-cubic', // Easing mais responsivo
         once: false, // Permite animações repetidas
         mirror: true, // Anima ao rolar para cima também
-        offset: 120,
+        offset: 80, // Menor offset para ativar mais cedo
         delay: 0,
-        anchorPlacement: 'top-bottom'
+        anchorPlacement: 'top-bottom',
+        disable: false, // Nunca desabilitar
+        startEvent: 'DOMContentLoaded', // Iniciar assim que o DOM estiver pronto
+        disableMutationObserver: false, // Observar mudanças no DOM
+        debounceDelay: 50, // Menor delay para melhor responsividade
+        throttleDelay: 99, // Menor throttle para animações mais fluidas
     });
 });
 
@@ -285,6 +290,150 @@ document.addEventListener('DOMContentLoaded', function() {
             closeModal();
         }
     });
+});
+
+// Funcionalidade dos botões do hero
+document.addEventListener('DOMContentLoaded', function() {
+    const btnProjetos = document.querySelector('.btn-primary');
+    const btnContato = document.querySelector('.btn-secondary');
+    
+    // Botão "Nossos Projetos" - scroll para a segunda section
+    if (btnProjetos) {
+        btnProjetos.addEventListener('click', function() {
+            const projetosSection = document.querySelector('.segunda-section');
+            if (projetosSection) {
+                const offsetTop = projetosSection.offsetTop - 80;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    }
+    
+    // Botão "Fale Conosco" - pode ser customizado para abrir modal de contato ou scroll para footer
+    if (btnContato) {
+        btnContato.addEventListener('click', function() {
+            // Por enquanto, apenas um alerta - pode ser customizado
+            alert('Entre em contato conosco:\n\nE-mail: contato@zolkatech.com\nTelefone: (48) 99999-9999');
+        });
+    }
+});
+
+// Animação de digitação na URL do mockup
+function typewriterURL() {
+    const urlBar = document.querySelector('.url-bar');
+    if (!urlBar) {
+        console.log('Elemento .url-bar não encontrado');
+        return;
+    }
+    
+    const urls = [
+        'seusite.com.br',
+        'sualandingpage.com.br'
+    ];
+    
+    let currentUrlIndex = 0;
+    let currentCharIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 150;
+    let cursorVisible = true;
+    
+    function type() {
+        const currentUrl = urls[currentUrlIndex];
+        
+        if (isDeleting) {
+            // Removendo caracteres
+            urlBar.textContent = currentUrl.substring(0, currentCharIndex - 1);
+            currentCharIndex--;
+            typingSpeed = 80;
+            
+            if (currentCharIndex === 0) {
+                isDeleting = false;
+                currentUrlIndex = (currentUrlIndex + 1) % urls.length;
+                typingSpeed = 500; // Pausa antes de começar a digitar
+            }
+        } else {
+            // Adicionando caracteres
+            urlBar.textContent = currentUrl.substring(0, currentCharIndex + 1);
+            currentCharIndex++;
+            typingSpeed = 120;
+            
+            if (currentCharIndex === currentUrl.length) {
+                typingSpeed = 2500; // Pausa no final antes de começar a deletar
+                setTimeout(() => {
+                    isDeleting = true;
+                }, 2000);
+                return;
+            }
+        }
+        
+        setTimeout(type, typingSpeed);
+    }
+    
+    // Cursor piscando
+    function blinkCursor() {
+        setInterval(() => {
+            if (urlBar) {
+                const content = urlBar.textContent.replace('|', '');
+                if (cursorVisible) {
+                    urlBar.textContent = content + '|';
+                } else {
+                    urlBar.textContent = content;
+                }
+                cursorVisible = !cursorVisible;
+            }
+        }, 500);
+    }
+    
+    // Iniciar a animação
+    urlBar.textContent = '';
+    currentCharIndex = 0;
+    type();
+    blinkCursor();
+}
+
+// Inicializar animação quando a página carregar
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(typewriterURL, 2000);
+});
+
+// Backup - garantir que a animação inicie
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        const urlBar = document.querySelector('.url-bar');
+        if (urlBar && (urlBar.textContent === 'seusite.com.br' || urlBar.textContent.trim() === '')) {
+            typewriterURL();
+        }
+    }, 3000);
+});
+
+// Spotlight Cards Effect
+function initSpotlightCards() {
+    const spotlightCards = document.querySelectorAll('.card-spotlight');
+    
+    spotlightCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        });
+        
+        // Reset position when mouse leaves
+        card.addEventListener('mouseleave', () => {
+            card.style.setProperty('--mouse-x', '50%');
+            card.style.setProperty('--mouse-y', '50%');
+        });
+    });
+}
+
+// Inicializar spotlight cards quando a página carregar
+document.addEventListener('DOMContentLoaded', () => {
+    // Inicializar spotlight cards
+    initSpotlightCards();
 });
 
 console.log('ZolkaTECH - Site carregado com sucesso! 🚀');
