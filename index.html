@@ -3,15 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zolka - Sites e Landing Pages</title>
+    <title>Zolka - Transformamos Ideias em Resultados Digitais</title>
     <link rel="stylesheet" href="index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <!-- Preload das imagens principais para melhor performance -->
-    <link rel="preload" as="image" href="assets/terracodolagofullpage.jpg">
-    <link rel="preload" as="image" href="assets/luizalthofffullpgage.jpg">
-    <link rel="preload" as="image" href="assets/ZOLKA_logo.png">
     <link rel="icon" type="image/png" href="assets/LogoFavicon.jpg">
     <!-- AOS Library CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -19,9 +15,10 @@
 <body>
     <!-- Navigation -->
     <nav class="navbar">
+        <div class="scroll-progress-bar"></div>
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="assets/ZOLKA_logo.png" alt="ZolkaTECH" class="logo-image">
+                <img src="assets/ZOLKA_logoBranca.png" alt="Zolka Logo" class="logo-image"> 
             </div>
             
             <!-- Desktop Menu -->
@@ -30,13 +27,10 @@
                     <a href="#home" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#sobre" class="nav-link">Sobre</a>
+                    <a href="portfolio.html" class="nav-link">Portfólio</a>
                 </li>
                 <li class="nav-item">
                     <a href="#servicos" class="nav-link">Serviços</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#portfolio" class="nav-link">Portfolio</a>
                 </li>
                 <li class="nav-item">
                     <a href="#contato" class="nav-link">Contato</a>
@@ -67,36 +61,27 @@
         <div class="hero-container">
             <div class="hero-content">
                 <h1 class="hero-title">
-                    Soluções em
-                    <span class="hero-accent">Sites e Landing Pages</span>
+                    Agentes de <span class="hero-accent">Inteligência Artificial</span>
+                    que Trabalham 24h pelo seu Negócio
                 </h1>
                 <div class="hero-benefits">
                     <div class="benefit-item" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
-                       
-                        <span><strong>Alta conversão</strong> - Sites que trabalham 24h por dia</span>
-                    </div>
-                    <div class="benefit-item" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
-                        
-                        <span><strong>Design moderno</strong> - Visual minimalista e responsivo</span>
+                        <span><strong>Atendimento Automatizado</strong> - Nunca perca um cliente, mesmo dormindo</span>
                     </div>
                     <div class="benefit-item" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
-                        
-                        <span><strong>Otimização para vendas</strong> - Cada elemento é pensado para converter</span>
+                        <span><strong>Integração Total</strong> - WhatsApp, Instagram, Site e mais plataformas</span>
                     </div>
                     <div class="benefit-item" data-aos="fade-up" data-aos-duration="600" data-aos-delay="400">
-                        
-                        <span><strong>Resultados comprovados</strong> - Clientes satisfeitos e vendas aumentadas</span>
+                        <span><strong>ROI Comprovado</strong> - Clientes aumentaram vendas em até 300%</span>
                     </div>
                 </div>
                 <div class="hero-buttons">
-                    <button class="btn btn-primary creative-btn">
-                        <span class="btn-text">Nossos Projetos</span>
-                    
+                    <button class="btn btn-primary creative-btn" onclick="window.open('https://wa.me/5524998364997?text=Olá! Quero conhecer os Agentes de IA da Zolka para automatizar meu negócio.', '_blank')">
+                        <span class="btn-text">Quero Meu Agente IA</span>
                         <span class="btn-glow"></span>
                     </button>
-                    <button class="btn btn-secondary creative-btn">
-                        <span class="btn-text">Fale Conosco</span>
-                    
+                    <button class="btn btn-secondary creative-btn" onclick="window.location.href='portfolio.html'">
+                        <span class="btn-text">Ver Casos de Sucesso</span>
                         <span class="btn-glow"></span>
                     </button>
                 </div>
@@ -104,257 +89,311 @@
             
             <div class="hero-visual">
                 <div class="mockup-container" data-aos="fade-up" data-aos-duration="1000" data-aos-once="false">
-                    <!-- Notebook Mockup -->
-                    <div class="laptop-mockup" data-aos="slide-left" data-aos-duration="1200" data-aos-delay="200" data-aos-once="false">
-                        <div class="laptop-screen">
-                            <div class="laptop-content">
-                                <div class="browser-bar">
-                                    <div class="browser-dots">
-                                        <span class="dot red"></span>
-                                        <span class="dot yellow"></span>
-                                        <span class="dot green"></span>
-                                    </div>
-                                    <div class="url-bar">seusite.com.br</div>
+                    <!-- AI Chat Interface Mockup -->
+                    <div class="ai-chat-mockup" data-aos="slide-left" data-aos-duration="1200" data-aos-delay="200" data-aos-once="false">
+                        <div class="chat-header">
+                            <div class="chat-status">
+                                <div class="status-dot online"></div>
+                                <span class="status-text">Agente IA Online</span>
+                            </div>
+                            <div class="chat-title">Atendimento Inteligente</div>
+                        </div>
+                        <div class="chat-messages">
+                            <div class="message ai-message">
+                                <div class="message-avatar">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#F4D04E"/>
+                                    </svg>
                                 </div>
-                                <div class="website-content">
-                                    <div class="header-section"></div>
-                                    <div class="content-sections">
-                                        <div class="section"></div>
-                                        <div class="section"></div>
-                                        <div class="section small"></div>
-                                    </div>
+                                <div class="message-content">
+                                    <p>Olá! Sou seu agente de IA. Como posso ajudar você hoje?</p>
+                                </div>
+                            </div>
+                            <div class="message user-message">
+                                <div class="message-content">
+                                    <p>Quero saber sobre automação para meu negócio</p>
+                                </div>
+                            </div>
+                            <div class="message ai-message">
+                                <div class="message-avatar">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#F4D04E"/>
+                                    </svg>
+                                </div>
+                                <div class="message-content">
+                                    <p>Perfeito! Posso automatizar seu atendimento, qualificar leads e aumentar suas vendas em até 300%. Quer agendar uma demonstração?</p>
+                                </div>
+                            </div>
+                            <div class="typing-indicator">
+                                <div class="typing-dots">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
                                 </div>
                             </div>
                         </div>
-                        <div class="laptop-base"></div>
-                    </div>
-                    
-                    <!-- Phone Mockup -->
-                    <div class="phone-mockup" data-aos="slide-right" data-aos-duration="1200" data-aos-delay="400" data-aos-once="false">
-                        <div class="phone-screen">
-                            <div class="phone-content">
-                                <div class="phone-header"></div>
-                                <div class="phone-sections">
-                                    <div class="phone-section"></div>
-                                    <div class="phone-section"></div>
-                                    <div class="phone-section small"></div>
-                                </div>
+                        <div class="chat-input">
+                            <div class="input-field">
+                                <span class="placeholder">Digite sua mensagem...</span>
+                            </div>
+                            <div class="send-button">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2 21l21-9L2 3v7l15 2-15 2v7z" fill="#F4D04E"/>
+                                </svg>
                             </div>
                         </div>
-                    </div>
+                    </div>    
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Segunda Section -->
-    <section class="segunda-section" id="sobre">
+    <!-- Stats Section -->
+    <section class="stats-section">
         <div class="section-container">
-            <div class="section-content">
-                <h2 class="section-title" data-aos="fade-up" data-aos-duration="300">Nossos Projetos</h2>
-                <p class="section-description" data-aos="fade-up" data-aos-duration="300" data-aos-delay="50">Landing Pages criadas para maximizar conversões e resultados</p>
-                
-                <div class="projects-grid">
-                    <!-- LP Mockup 1 -->
-                    <div class="project-card" data-aos="fade-up" data-aos-duration="400" data-aos-delay="20">
-                        <div class="project-mockup">
-                            <div class="mockup-browser">
-                                <div class="browser-header">
-                                    <div class="browser-controls">
-                                        <span class="control red"></span>
-                                        <span class="control yellow"></span>
-                                        <span class="control green"></span>
-                                    </div>
-                                    <div class="browser-url">terracodolago.kdempreendimentos.com.br</div>
-                                </div>
-                                <div class="mockup-content">
-                                    <a href="#" class="mockup-link" onclick="openModal('assets/terracodolagofullpage.jpg', 'Terraço do Lago', 'Landing page para empreendimento imobiliário com foco em conversão e design moderno.')">
-                                        <img src="assets/terracodolagofullpage.jpg" alt="Terraço do Lago Landing Page" class="hero-mockup-image" loading="lazy">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h3>Landing Page Conversão</h3>
-                            <p>LP focada em alta conversão com design minimalista</p>
-                        </div>
-                    </div>
-
-                    <!-- LP Mockup 2 -->
-                    <div class="project-card" data-aos="fade-up" data-aos-duration="400" data-aos-delay="20">
-                        <div class="project-mockup">
-                            <div class="mockup-browser">
-                                <div class="browser-header">
-                                    <div class="browser-controls">
-                                        <span class="control red"></span>
-                                        <span class="control yellow"></span>
-                                        <span class="control green"></span>
-                                    </div>
-                                    <div class="browser-url">lancamentofloripa.luizalthoff.com</div>
-                                </div>
-                                <div class="mockup-content">
-                                    <a href="#" class="mockup-link" onclick="openModal('assets/luizalthofffullpgage.jpg', 'Luiz Althoff', 'Landing page profissional com design elegante e interface otimizada para conversão.')">
-                                        <img src="assets/luizalthofffullpgage.jpg" alt="Luiz Althoff Landing Page" class="hero-mockup-image" loading="lazy">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h3>LP Profissional</h3>
-                            <p>Landing page pessoal com design elegante e profissional</p>
-                        </div>
-                    </div>
-
-                    <!-- LP Mockup 3 -->
-                    <div class="project-card" data-aos="fade-up" data-aos-duration="400" data-aos-delay="150">
-                        <div class="project-mockup">
-                            <div class="mockup-browser">
-                                <div class="browser-header">
-                                    <div class="browser-controls">
-                                        <span class="control red"></span>
-                                        <span class="control yellow"></span>
-                                        <span class="control green"></span>
-                                    </div>
-                                    <div class="browser-url">projeto3.com.br</div>
-                                </div>
-                                <div class="mockup-content">
-                                    <div class="lp-header"></div>
-                                    <div class="lp-hero product">
-                                        <div class="product-showcase"></div>
-                                        <div class="product-details">
-                                            <div class="detail-item"></div>
-                                            <div class="detail-item"></div>
-                                            <div class="detail-cta"></div>
-                                        </div>
-                                    </div>
-                                    <div class="lp-pricing">
-                                        <div class="price-card"></div>
-                                        <div class="price-card featured"></div>
-                                        <div class="price-card"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h3>LP E-commerce</h3>
-                            <p>Otimizada para vendas online e produtos digitais</p>
-                        </div>
-                    </div>
+            <div class="stats-grid" data-aos="fade-up">
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Atendimento Ativo</div>
+                </div>
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-number">300%</div>
+                    <div class="stat-label">Aumento em Vendas</div>
+                </div>
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Taxa de Conversão</div>
+                </div>
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-number">0s</div>
+                    <div class="stat-label">Tempo de Resposta</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Terceira Section - Spotlight Cards -->
+    <!-- Serviços Section -->
     <section class="spotlight-section" id="servicos">
         <div class="section-container">
             <div class="section-content">
-                <h2 class="section-title" data-aos="fade-up">Nossos Serviços</h2>
-                <p class="section-description" data-aos="fade-up" data-aos-delay="100">Soluções completas para o seu negócio digital</p>
+                <h2 class="section-title" data-aos="fade-up">Nossos <span class="section-accent">Agentes de IA</span></h2>
+                <p class="section-description" data-aos="fade-up" data-aos-delay="100">Automação inteligente que revoluciona seu atendimento e vendas</p>
                 
                 <div class="spotlight-cards-grid">
-                    <!-- Card 1 -->
-                    <div class="card-spotlight" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+
+                     <div class="card-spotlight" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
                         <div class="spotlight-card-content">
                             <div class="spotlight-icon">
                                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" stroke="#F4D04E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <polyline points="3.27,6.96 12,12.01 20.73,6.96" stroke="#F4D04E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <line x1="12" y1="22.08" x2="12" y2="12" stroke="#F4D04E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z" stroke="#F4D04E" stroke-width="2"/>
+                                    <path d="M9 12l2 2 4-4" stroke="#F4D04E" stroke-width="2"/>
                                 </svg>
                             </div>
-                            <h3 class="spotlight-title">Landing Pages</h3>
-                            <p class="spotlight-description">Páginas de alta conversão otimizadas para capturar leads e aumentar suas vendas. Design moderno e responsivo.</p>
+                            <h3 class="spotlight-title">Automações Inteligentes</h3>
+                            <p class="spotlight-description">Automatize processos repetitivos e libere sua equipe para focar no que realmente importa para o crescimento do negócio.</p>
                             <ul class="spotlight-features">
-                                <li>Design responsivo</li>
-                                <li>Otimização para conversão</li>
-                                <li>Integração com ferramentas</li>
-                                <li>Analytics avançado</li>
+                                <li>Automação de e-mail marketing</li>
+                                <li>Fluxos de nutrição de leads</li>
+                                <li>Integração entre sistemas</li>
+                                <li>Relatórios automáticos</li>
                             </ul>
+                            <div class="spotlight-price">
+                                <span class="price-from">A partir de</span>
+                                <span class="price-value">R$ 397/mês</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 1 - Agente de IA em destaque -->
+                    <div class="card-spotlight featured" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                        <div class="spotlight-card-content">
+                            <div class="spotlight-icon">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="#F4D04E" stroke-width="2"/>
+                                    <circle cx="9" cy="10" r="1" fill="#F4D04E"/>
+                                    <circle cx="15" cy="10" r="1" fill="#F4D04E"/>
+                                    <path d="M9 14.5s1 2 3 2 3-2 3-2" stroke="#F4D04E" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div class="featured-badge">MAIS POPULAR</div>
+                            <h3 class="spotlight-title">Agente de Atendimento IA</h3>
+                            <p class="spotlight-description">Atendente virtual que conversa naturalmente com seus clientes, qualifica leads e agenda reuniões automaticamente.</p>
+                            <ul class="spotlight-features">
+                                <li>Atendimento 24 horas por dia</li>
+                                <li>Respostas personalizadas e naturais</li>
+                                <li>Integração WhatsApp e Instagram</li>
+                                <li>Qualificação automática de leads</li>
+                                <li>Agendamento de reuniões</li>
+                            </ul>
+                            <div class="spotlight-price">
+                                <span class="price-from">A partir de</span>
+                                <span class="price-value">R$ 497/mês</span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Card 2 -->
-                    <div class="card-spotlight" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-                        <div class="spotlight-card-content">
-                            <div class="spotlight-icon">
-                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="#F4D04E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <line x1="8" y1="21" x2="16" y2="21" stroke="#F4D04E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <line x1="12" y1="17" x2="12" y2="21" stroke="#F4D04E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                            <h3 class="spotlight-title">Sites Institucionais</h3>
-                            <p class="spotlight-description">Sites completos para empresas que querem marcar presença digital com autoridade e profissionalismo.</p>
-                            <ul class="spotlight-features">
-                                <li>Design profissional</li>
-                                <li>SEO otimizado</li>
-                                <li>Painel administrativo</li>
-                                <li>Suporte técnico</li>
-                            </ul>
-                        </div>
-                    </div>
-
+                   
                     <!-- Card 3 -->
                     <div class="card-spotlight" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
                         <div class="spotlight-card-content">
                             <div class="spotlight-icon">
                                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="12" cy="12" r="3" stroke="#F4D04E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" stroke="#F4D04E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="#F4D04E" stroke-width="2"/>
+                                    <circle cx="12" cy="12" r="3" stroke="#F4D04E" stroke-width="2"/>
                                 </svg>
                             </div>
-                            <h3 class="spotlight-title">Otimização & Manutenção</h3>
-                            <p class="spotlight-description">Mantenha seu site sempre rápido, seguro e atualizado. Otimização contínua para melhor performance.</p>
+                            <h3 class="spotlight-title">Agente Personalizado</h3>
+                            <p class="spotlight-description">Desenvolvemos agentes de IA sob medida para as necessidades específicas do seu negócio, com funcionalidades únicas.</p>
                             <ul class="spotlight-features">
-                                <li>Velocidade otimizada</li>
-                                <li>Segurança reforçada</li>
-                                <li>Backup automático</li>
-                                <li>Monitoramento 24/7</li>
+                                <li>Desenvolvimento exclusivo</li>
+                                <li>Funcionalidades personalizadas</li>
+                                <li>Integração com seus sistemas</li>
+                                <li>Suporte técnico dedicado</li>
                             </ul>
-                        </div>
-                    </div>
-
-                    <!-- Card 4 -->
-                    <div class="card-spotlight" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
-                        <div class="spotlight-card-content">
-                            <div class="spotlight-icon">
-                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" stroke="#F4D04E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <polyline points="14,2 14,8 20,8" stroke="#F4D04E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <line x1="16" y1="13" x2="8" y2="13" stroke="#F4D04E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <line x1="16" y1="17" x2="8" y2="17" stroke="#F4D04E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <polyline points="10,9 9,9 8,9" stroke="#F4D04E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
+                            <div class="spotlight-price">
+                                <span class="price-from">A partir de</span>
+                                <span class="price-value">R$ 697/mês</span>
                             </div>
-                            <h3 class="spotlight-title">Consultoria Digital</h3>
-                            <p class="spotlight-description">Estratégias personalizadas para sua presença digital. Análise completa e plano de ação detalhado.</p>
-                            <ul class="spotlight-features">
-                                <li>Análise competitiva</li>
-                                <li>Estratégia de conversão</li>
-                                <li>Plano de ação</li>
-                                <li>Acompanhamento resultados</li>
-                            </ul>
                         </div>
                     </div>
+                </div>
+                
+                <div class="services-cta" data-aos="fade-up" data-aos-delay="400">
+                    <button class="btn btn-primary creative-btn" onclick="window.open('https://wa.me/5524998364997?text=Olá! Quero conhecer os Agentes de IA da Zolka e como eles podem automatizar meu negócio.', '_blank')">
+                        <span class="btn-text">Implementar Agente IA</span>
+                        <span class="btn-glow"></span>
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Modal para visualizar imagens -->
-    <div id="imageModal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close">&times;</span>
-            <div class="modal-image-container">
-                <img id="modalImage" src="" alt="Preview da Landing Page">
-            </div>
-            <div class="modal-caption">
-                <h3 id="modalTitle"></h3>
-                <p id="modalDescription"></p>
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="section-container">
+            <div class="cta-content" data-aos="fade-up">
+                <h2 class="cta-title">Pronto para <span class="section-accent">Automatizar</span> seu Negócio?</h2>
+                <p class="cta-description">
+                    Implemente agentes de IA que trabalham 24 horas por dia para aumentar suas vendas, melhorar o atendimento e acelerar o crescimento da sua empresa.
+                </p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary creative-btn" onclick="window.open('https://wa.me/5524998364997?text=Olá! Quero implementar Agentes de IA no meu negócio. Vamos conversar?', '_blank')">
+                        <span class="btn-text">Implementar Agora</span>
+                        <span class="btn-glow"></span>
+                    </button>
+                    <button class="btn btn-secondary creative-btn" onclick="window.location.href='#contato'">
+                        <span class="btn-text">Saber Mais</span>
+                        <span class="btn-glow"></span>
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contato" class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- Logo e Descrição -->
+                <div class="footer-brand" data-aos="fade-up" data-aos-duration="600">
+                    <div class="footer-logo">
+                        <img src="assets/ZOLKA_logoBranca.png" alt="ZolkaTECH" class="footer-logo-img">
+                    </div>
+                    <p class="footer-description">
+                        Transformamos ideias em experiências digitais de alta conversão. 
+                        Especializados em landing pages, agentes de IA e soluções que geram resultados.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="2"/>
+                                <rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Links Rápidos -->
+                <div class="footer-links" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
+                    <h4 class="footer-heading">Navegação</h4>
+                    <ul class="footer-nav">
+                        <li><a href="#home" class="footer-link">Home</a></li>
+                        <li><a href="portfolio.html" class="footer-link">Portfólio</a></li>
+                        <li><a href="#servicos" class="footer-link">Serviços</a></li>
+                        <li><a href="#contato" class="footer-link">Contato</a></li>
+                    </ul>
+                </div>
+
+                <!-- Serviços -->
+                <div class="footer-services" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
+                    <h4 class="footer-heading">Serviços</h4>
+                    <ul class="footer-nav">
+                        <li><a href="#" class="footer-link">Landing Pages</a></li>
+                        <li><a href="#" class="footer-link">Sites Institucionais</a></li>
+                        <li><a href="#" class="footer-link">Agentes de IA</a></li>
+                        <li><a href="#" class="footer-link">Automação</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contato -->
+                <div class="footer-contact" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
+                    <h4 class="footer-heading">Contato</h4>
+                    <div class="footer-contact-info">
+                        <div class="contact-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2"/>
+                                <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <span>contato@zolka.com.br</span>
+                        </div>
+                        <div class="contact-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <span>+55 (24) 99836-4997</span>
+                        </div>
+                        <div class="contact-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <span>Resende, RJ</span>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/5524998364997?text=Olá! Gostaria de conhecer melhor os serviços da Zolka." target="_blank" class="footer-cta-button">
+                        <span>Começar Projeto</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 17l10-10" stroke="currentColor" stroke-width="2"/>
+                            <path d="M7 7h10v10" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="footer-container">
+                <div class="footer-bottom-content">
+                    <p class="footer-copyright">
+                        © 2025 Zolka. Todos os direitos reservados.
+                    </p>
+                    <div class="footer-bottom-links">
+                        <a href="#" class="footer-bottom-link">Política de Privacidade</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- AOS Library JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

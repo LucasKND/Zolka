@@ -3,6 +3,10 @@ const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 const navbar = document.querySelector('.navbar');
 const navLinks = document.querySelectorAll('.nav-link');
+const scrollProgressBar = document.querySelector('.scroll-progress-bar');
+
+// Sections for active navigation
+const sections = document.querySelectorAll('section[id]');
 
 // Mobile Menu Toggle
 hamburger.addEventListener('click', () => {
@@ -22,15 +26,59 @@ navLinks.forEach(link => {
     });
 });
 
-// Navbar scroll effect
+// Scroll Progress Bar and Active Section Detection
+function updateScrollProgress() {
+    const scrollTop = window.pageYOffset;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    
+    // Update progress bar
+    scrollProgressBar.style.width = scrollPercent + '%';
+}
+
+function updateActiveSection() {
+    const scrollY = window.scrollY;
+    const windowHeight = window.innerHeight;
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.clientHeight;
+        const sectionId = section.getAttribute('id');
+        
+        // Check if section is in viewport
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+            // Remove active class from all nav links
+            navLinks.forEach(link => link.classList.remove('active'));
+            
+            // Add active class to current section's nav link
+            const activeLink = document.querySelector(`a[href="#${sectionId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
+    });
+}
+
+// Navbar scroll effect with progress updates
 window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
     
+    // Navbar background effect
     if (scrollY > 50) {
         navbar.classList.add('scrolled');
     } else {
         navbar.classList.remove('scrolled');
     }
+    
+    // Update scroll progress and active section
+    updateScrollProgress();
+    updateActiveSection();
+});
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', () => {
+    updateScrollProgress();
+    updateActiveSection();
 });
 
 // Smooth scrolling for anchor links
@@ -430,10 +478,56 @@ function initSpotlightCards() {
     });
 }
 
+// Footer Links Smooth Scroll
+function initFooterSmoothScroll() {
+    const footerLinks = document.querySelectorAll('.footer-link[href^="#"]');
+    
+    footerLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            const targetId = link.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            
+            if (targetSection) {
+                const offsetTop = targetSection.offsetTop - 80; // Account for navbar height
+                
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    });
+}
+
+// Footer CTA Button
+function initFooterCTA() {
+    const footerCTAButton = document.querySelector('.footer-cta-button');
+    
+    if (footerCTAButton) {
+        footerCTAButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Obrigado pelo interesse! Em breve entraremos em contato para discutir seu projeto. 📧');
+        });
+    }
+}
+
 // Inicializar spotlight cards quando a página carregar
 document.addEventListener('DOMContentLoaded', () => {
     // Inicializar spotlight cards
     initSpotlightCards();
+    
+    // Inicializar footer smooth scroll
+    initFooterSmoothScroll();
+    
+    // Inicializar footer CTA
+    initFooterCTA();
 });
 
 console.log('ZolkaTECH - Site carregado com sucesso! 🚀');
