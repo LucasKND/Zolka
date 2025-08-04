@@ -5,6 +5,17 @@
     box-sizing: border-box;
 }
 
+/* DarkVeil Background Canvas */
+.darkveil-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
 :root {
     /* Paleta Monocromática - Preto, Branco, Amarelo */
     --black-dark: #0a0a0a;
@@ -13,7 +24,7 @@
     --black-lighter: #2a2a2a;
     --white-primary: #ffffff;
     --white-light: #f8f8f8;
-    --yellow-primary: #ffd700;
+    --yellow-primary: #F4D04E;
     --yellow-light: #ffed4e;
     --yellow-dark: #b8860b;
     
@@ -231,7 +242,7 @@ p {
     align-items: center;
     position: relative;
     background: linear-gradient(135deg, var(--black-primary) 0%, var(--black-light) 100%);
-    overflow: visible;
+    overflow: hidden;
 }
 
 .hero-container {
@@ -2643,9 +2654,14 @@ p {
 /* Stats Section */
 .stats-section {
     padding: 4rem 0;
-    background: rgba(255, 255, 255, 0.02);
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.4) 30%,
+        rgba(255, 255, 255, 0.02) 100%
+    );
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
 }
 
 .stats-grid {
@@ -4227,4 +4243,24 @@ p {
   font-size: 1rem;
   color: var(--white-primary);
   font-weight: 500;
+}
+
+/* BlurText Animation Styles */
+.blur-text {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0;
+}
+
+.blur-text span {
+    display: inline-block;
+    will-change: transform, filter, opacity;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Enhanced CTA title for blur effect */
+.cta-title {
+    line-height: 1.2;
+    overflow: visible;
 }
