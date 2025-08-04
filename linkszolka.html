@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zolka - Links</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/LogoFavicon.jpg">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Background Effects */
+        .bg-lights {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .light-point {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(244, 208, 78, 0.6) 0%, rgba(244, 208, 78, 0.3) 30%, transparent 70%);
+            filter: blur(1px);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .light-1 {
+            width: 120px;
+            height: 120px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .light-2 {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .light-3 {
+            width: 100px;
+            height: 100px;
+            bottom: 30%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        .light-4 {
+            width: 60px;
+            height: 60px;
+            bottom: 10%;
+            right: 10%;
+            animation-delay: 1s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) scale(1);
+                opacity: 0.7;
+            }
+            50% {
+                transform: translateY(-20px) scale(1.1);
+                opacity: 1;
+            }
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            margin: 0 auto;
+        }
+
+        /* Profile Section */
+        .profile-section {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .profile-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            padding: 15px;
+            background: rgba(244, 208, 78, 0.1);
+            border: 2px solid rgba(244, 208, 78, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(244, 208, 78, 0.2);
+        }
+
+        .profile-logo img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            filter: brightness(1.2);
+        }
+
+        .profile-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .profile-accent {
+            color: #F4D04E;
+        }
+
+        .profile-subtitle {
+            font-size: 16px;
+            color: #cccccc;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .profile-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(244, 208, 78, 0.2), rgba(244, 208, 78, 0.1));
+            border: 1px solid rgba(244, 208, 78, 0.3);
+            color: #F4D04E;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Links Section */
+        .links-section {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .link-item {
+            position: relative;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 20px;
+            text-decoration: none;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .link-item:hover {
+            transform: translateY(-2px);
+            background: rgba(244, 208, 78, 0.1);
+            border-color: rgba(244, 208, 78, 0.3);
+            box-shadow: 0 8px 32px rgba(244, 208, 78, 0.2);
+        }
+
+        .link-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(244, 208, 78, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .link-item:hover::before {
+            left: 100%;
+        }
+
+        .link-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(244, 208, 78, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            border: 1px solid rgba(244, 208, 78, 0.2);
+        }
+
+        .link-icon svg {
+            width: 24px;
+            height: 24px;
+            color: #F4D04E;
+        }
+
+        .link-content {
+            flex: 1;
+        }
+
+        .link-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #ffffff;
+        }
+
+        .link-description {
+            font-size: 14px;
+            color: #cccccc;
+            line-height: 1.4;
+        }
+
+        .link-arrow {
+            width: 20px;
+            height: 20px;
+            color: #F4D04E;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .link-item:hover .link-arrow {
+            opacity: 1;
+            transform: translateX(4px);
+        }
+
+        /* Featured Link */
+        .link-item.featured {
+            background: linear-gradient(135deg, rgba(244, 208, 78, 0.15), rgba(244, 208, 78, 0.05));
+            border-color: rgba(244, 208, 78, 0.3);
+            position: relative;
+        }
+
+        .link-item.featured::after {
+            content: 'DESTAQUE';
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            background: #F4D04E;
+            color: #000000;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            color: #888888;
+            margin-bottom: 10px;
+        }
+
+        .footer-link {
+            color: #F4D04E;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-link:hover {
+            opacity: 0.8;
+        }
+
+        /* Social Media Icons */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0 10px 0;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(244, 208, 78, 0.1);
+            border: 1px solid rgba(244, 208, 78, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .social-icon:hover {
+            background: rgba(244, 208, 78, 0.2);
+            border-color: rgba(244, 208, 78, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(244, 208, 78, 0.2);
+        }
+
+        .social-icon svg {
+            width: 20px;
+            height: 20px;
+            color: #F4D04E;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 480px) {
+            .container {
+                padding: 16px;
+                max-width: 100%;
+            }
+
+            .profile-logo {
+                width: 100px;
+                height: 100px;
+                padding: 12px;
+            }
+
+            .profile-logo img {
+                width: 65px;
+                height: 65px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            .profile-title {
+                font-size: 24px;
+            }
+
+            .link-item {
+                padding: 16px;
+                gap: 12px;
+            }
+
+            .link-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .link-icon svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            .link-title {
+                font-size: 16px;
+            }
+
+            .link-description {
+                font-size: 13px;
+            }
+        }
+
+        /* Click Animation */
+        .link-item:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="bg-lights">
+        <div class="light-point light-1"></div>
+        <div class="light-point light-2"></div>
+        <div class="light-point light-3"></div>
+        <div class="light-point light-4"></div>
+    </div>
+
+    <div class="container">
+        <!-- Profile Section -->
+        <div class="profile-section">
+            <div class="profile-logo">
+                <img src="assets/LogoZBlack.png" alt="Zolka Logo">
+            </div>
+            <h1 class="profile-title">
+                <span class="profile-accent">Zolka</span> Tech
+            </h1>
+            <p class="profile-subtitle">
+                Agentes de IA que trabalham 24h pelo seu negócio
+            </p>
+            <div class="profile-badge">
+                Automação Inteligente
+            </div>
+        </div>
+
+        <!-- Links Section -->
+        <div class="links-section">
+            <!-- Main Website -->
+            <a href="index.html" class="link-item featured" onclick="trackClick('website')">
+                <div class="link-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                        <line x1="8" y1="21" x2="16" y2="21" stroke="currentColor" stroke-width="2"/>
+                        <line x1="12" y1="17" x2="12" y2="21" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="link-content">
+                    <div class="link-title">Site Oficial</div>
+                    <div class="link-description">Conheça nossos Agentes de IA e soluções</div>
+                </div>
+                <svg class="link-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17l10-10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M7 7h10v10" stroke="currentColor" stroke-width="2"/>
+                </svg>
+            </a>
+
+            <!-- WhatsApp Contact -->
+            <a href="https://wa.me/5524920041669?text=Olá! Vim do Instagram da Zolka e quero conhecer os Agentes de IA." class="link-item" target="_blank" onclick="trackClick('whatsapp')">
+                <div class="link-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" fill="currentColor"/>
+                    </svg>
+                </div>
+                <div class="link-content">
+                    <div class="link-title">Falar no WhatsApp</div>
+                    <div class="link-description">Atendimento direto e personalizado</div>
+                </div>
+                <svg class="link-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17l10-10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M7 7h10v10" stroke="currentColor" stroke-width="2"/>
+                </svg>
+            </a>
+
+            <!-- Schedule Meeting -->
+            <a href="https://wa.me/5524920041669?text=Olá! Gostaria de agendar uma reunião para conversar sobre automação com Agentes de IA para meu negócio." class="link-item" target="_blank" onclick="trackClick('meeting')">
+                <div class="link-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                        <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2"/>
+                        <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2"/>
+                        <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/>
+                        <path d="M8 14h.01" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 14h.01" stroke="currentColor" stroke-width="2"/>
+                        <path d="M16 14h.01" stroke="currentColor" stroke-width="2"/>
+                        <path d="M8 18h.01" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 18h.01" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="link-content">
+                    <div class="link-title">Agendar Reunião</div>
+                    <div class="link-description">Marque um horário para conversar conosco</div>
+                </div>
+                <svg class="link-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17l10-10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M7 7h10v10" stroke="currentColor" stroke-width="2"/>
+                </svg>
+            </a>
+
+            <!-- Test AI Agent -->
+            <a href="https://wa.me/5524920041669?text=Olá! Quero testar o Agente de IA da Zolka gratuitamente." class="link-item" target="_blank" onclick="trackClick('test-ai')">
+                <div class="link-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="9" cy="10" r="1" fill="currentColor"/>
+                        <circle cx="15" cy="10" r="1" fill="currentColor"/>
+                        <path d="M9 14.5s1 2 3 2 3-2 3-2" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="link-content">
+                    <div class="link-title">Testar Agente IA</div>
+                    <div class="link-description">Experimente gratuitamente nossa IA</div>
+                </div>
+                <svg class="link-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17l10-10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M7 7h10v10" stroke="currentColor" stroke-width="2"/>
+                </svg>
+            </a>
+
+            <!-- Work With Us -->
+            <a href="mailto:zolka.tech@gmail.com?subject=Trabalhe Conosco - Zolka Tech&body=Olá! Tenho interesse em fazer parte da equipe Zolka Tech." class="link-item" onclick="trackClick('careers')">
+                <div class="link-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" stroke="currentColor" stroke-width="2"/>
+                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 11v6" stroke="currentColor" stroke-width="2"/>
+                        <path d="M9 14h6" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="link-content">
+                    <div class="link-title">Trabalhe Conosco</div>
+                    <div class="link-description">Faça parte da nossa equipe de inovação</div>
+                </div>
+                <svg class="link-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17l10-10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M7 7h10v10" stroke="currentColor" stroke-width="2"/>
+                </svg>
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <!-- Social Media Icons -->
+            <div class="social-icons">
+                <a href="https://www.instagram.com/zolkatech/" class="social-icon" target="_blank" rel="noopener" onclick="trackClick('instagram')">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke="currentColor" stroke-width="2"/>
+                        <path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/zolka-tech-b61189378" class="social-icon" target="_blank" rel="noopener" onclick="trackClick('linkedin')">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="2"/>
+                        <rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </a>
+            </div>
+            
+            <p class="footer-text">
+                Criado por <a href="#" class="footer-link">Zolka Tech</a>
+            </p>
+            <p class="footer-text" style="font-size: 12px; margin-top: 8px;">
+                Agentes de IA • Automação • Resultados
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Track link clicks for analytics
+        function trackClick(linkType) {
+            console.log('Link clicked:', linkType);
+            
+            // Add click analytics here if needed
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'click', {
+                    'event_category': 'linktree',
+                    'event_label': linkType
+                });
+            }
+            
+            // Add visual feedback
+            const clickedElement = event.currentTarget;
+            clickedElement.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                clickedElement.style.transform = '';
+            }, 150);
+        }
+
+        // Add smooth scrolling for internal links
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add loading animation
+            const container = document.querySelector('.container');
+            container.style.opacity = '0';
+            container.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                container.style.transition = 'all 0.8s ease-out';
+                container.style.opacity = '1';
+                container.style.transform = 'translateY(0)';
+            }, 100);
+
+            // Add hover sound effect (optional)
+            const linkItems = document.querySelectorAll('.link-item');
+            linkItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    // Add subtle hover effect
+                    this.style.transition = 'all 0.3s ease';
+                });
+            });
+
+            // Add click ripple effect
+            linkItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    const ripple = document.createElement('div');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    ripple.style.position = 'absolute';
+                    ripple.style.borderRadius = '50%';
+                    ripple.style.background = 'rgba(244, 208, 78, 0.3)';
+                    ripple.style.transform = 'scale(0)';
+                    ripple.style.animation = 'ripple 0.6s ease-out';
+                    ripple.style.pointerEvents = 'none';
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+        });
+
+        // Add ripple keyframes dynamically
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(2);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            const linkItems = Array.from(document.querySelectorAll('.link-item'));
+            const currentFocus = document.activeElement;
+            const currentIndex = linkItems.indexOf(currentFocus);
+
+            if (e.key === 'ArrowDown' && currentIndex < linkItems.length - 1) {
+                e.preventDefault();
+                linkItems[currentIndex + 1].focus();
+            } else if (e.key === 'ArrowUp' && currentIndex > 0) {
+                e.preventDefault();
+                linkItems[currentIndex - 1].focus();
+            } else if (e.key === 'Enter' && currentFocus.classList.contains('link-item')) {
+                e.preventDefault();
+                currentFocus.click();
+            }
+        });
+
+        // Add focus styles for accessibility
+        const focusStyle = document.createElement('style');
+        focusStyle.textContent = `
+            .link-item:focus {
+                outline: 2px solid #F4D04E;
+                outline-offset: 2px;
+            }
+        `;
+        document.head.appendChild(focusStyle);
+    </script>
+</body>
+</html>

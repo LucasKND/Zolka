@@ -528,6 +528,163 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Inicializar footer CTA
     initFooterCTA();
+    
+    // Inicializar formulário de contato
+    initContactForm();
 });
+
+// Contact Form Handler
+function initContactForm() {
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', handleContactSubmit);
+        
+        // Phone number formatting
+        const phoneInput = document.getElementById('phone');
+        if (phoneInput) {
+            phoneInput.addEventListener('input', formatPhoneNumber);
+        }
+    }
+}
+
+function formatPhoneNumber(e) {
+    let value = e.target.value.replace(/\D/g, '');
+    
+    if (value.length >= 11) {
+        value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+    } else if (value.length >= 7) {
+        value = value.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+    } else if (value.length >= 3) {
+        value = value.replace(/(\d{2})(\d{0,5})/, '($1) $2');
+    }
+    
+    e.target.value = value;
+}
+
+function handleContactSubmit(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
+    
+    // Validar campos obrigatórios
+    const requiredFields = ['name', 'email', 'phone', 'service'];
+    const missingFields = requiredFields.filter(field => !data[field]);
+    
+    if (missingFields.length > 0) {
+        alert('Por favor, preencha todos os campos obrigatórios.');
+        return;
+    }
+    
+    // Validar email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(data.email)) {
+        alert('Por favor, insira um e-mail válido.');
+        return;
+    }
+    
+    // Simular envio
+    const submitBtn = e.target.querySelector('.form-submit-btn');
+    const originalText = submitBtn.innerHTML;
+    
+    submitBtn.innerHTML = '<span class="btn-text">Enviando...</span>';
+    submitBtn.disabled = true;
+    
+    // Criar mensagem para WhatsApp
+    const whatsappMessage = `
+🌟 *Nova Solicitação de Orçamento - Zolka*
+
+👤 *Nome:* ${data.name}
+📧 *E-mail:* ${data.email}
+📱 *WhatsApp:* ${data.phone}
+🏢 *Empresa:* ${data.company || 'Não informado'}
+🎯 *Serviço:* ${getServiceName(data.service)}
+
+💬 *Mensagem:*
+${data.message || 'Nenhuma mensagem adicional'}
+
+---
+Enviado através do site da Zolka
+    `.trim();
+    
+    setTimeout(() => {
+        // Redirecionar para WhatsApp
+        const whatsappUrl = `https://wa.me/5524920041669?text=${encodeURIComponent(whatsappMessage)}`;
+        window.open(whatsappUrl, '_blank');
+        
+        // Resetar formulário
+        e.target.reset();
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+        
+        // Mostrar confirmação
+        showContactSuccess();
+    }, 1500);
+}
+
+function getServiceName(serviceValue) {
+    const services = {
+        'agente-ia': 'Agente de IA',
+        'automacoes': 'Automações Inteligentes',
+        'sites': 'Sites e Landing Pages',
+        'trafego': 'Tráfego Pago',
+        'design': 'Design e Branding',
+        'social': 'Gestão de Redes Sociais',
+        'outros': 'Outros serviços'
+    };
+    
+    return services[serviceValue] || serviceValue;
+}
+
+function showContactSuccess() {
+    // Criar elemento de sucesso
+    const successMessage = document.createElement('div');
+    successMessage.innerHTML = `
+        <div style="
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 9999;
+            animation: slideInRight 0.5s ease-out;
+        ">
+            <strong>✅ Solicitação enviada!</strong><br>
+            Redirecionando para o WhatsApp...
+        </div>
+    `;
+    
+    // Adicionar CSS de animação
+    if (!document.getElementById('contact-success-styles')) {
+        const styles = document.createElement('style');
+        styles.id = 'contact-success-styles';
+        styles.textContent = `
+            @keyframes slideInRight {
+                from {
+                    opacity: 0;
+                    transform: translateX(100%);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+        `;
+        document.head.appendChild(styles);
+    }
+    
+    document.body.appendChild(successMessage);
+    
+    // Remover mensagem após 3 segundos
+    setTimeout(() => {
+        if (successMessage.parentNode) {
+            successMessage.parentNode.removeChild(successMessage);
+        }
+    }, 3000);
+}
 
 console.log('ZolkaTECH - Site carregado com sucesso! 🚀');
