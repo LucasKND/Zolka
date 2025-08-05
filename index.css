@@ -49,6 +49,32 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* Personalização da Barra de Rolagem */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--black-light);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--yellow-primary);
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--yellow-light);
+}
+
+/* Barra de rolagem para Firefox */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--yellow-primary) var(--black-light);
+}
+
 /* Headings Globais */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
@@ -878,8 +904,8 @@ p {
     }
     
     .logo-image {
-        height: 150px;
-        width: 115px;
+        height: 180px;
+        width: 140px;
     }
     
     .nav-menu {
@@ -2709,6 +2735,13 @@ p {
     color: var(--white-primary);
 }
 
+/* Mobile: Ocultar seção de estatísticas */
+@media (max-width: 768px) {
+    .stats-section {
+        display: none;
+    }
+}
+
 /* CTA Section */
 .cta-section {
     padding: 6rem 0;
@@ -3765,59 +3798,102 @@ p {
 
 .contact-method {
     display: flex;
-    align-items: flex-start;
-    gap: 1.5rem;
-    margin-bottom: 2.5rem;
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+    padding: 1.75rem;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-method::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(244, 208, 78, 0.05) 0%, transparent 50%);
+    opacity: 0;
     transition: var(--transition);
 }
 
 .contact-method:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 215, 0, 0.3);
-    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(244, 208, 78, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(244, 208, 78, 0.1);
+}
+
+.contact-method:hover::before {
+    opacity: 1;
 }
 
 .method-icon {
-    width: 48px;
-    height: 48px;
-    background: rgba(255, 215, 0, 0.1);
-    border-radius: 10px;
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, rgba(244, 208, 78, 0.15) 0%, rgba(244, 208, 78, 0.05) 100%);
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    border: 1px solid rgba(255, 215, 0, 0.2);
+    border: 1px solid rgba(244, 208, 78, 0.2);
+    position: relative;
+    z-index: 1;
+}
+
+.method-content {
+    flex: 1;
+    position: relative;
+    z-index: 1;
 }
 
 .method-content h4 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 600;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
     color: var(--white-primary);
+    letter-spacing: -0.02em;
 }
 
 .method-content p {
-    color: #cccccc;
-    margin-bottom: 0.5rem;
+    color: #b8b8b8;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
 }
 
 .method-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.6rem;
     color: var(--yellow-primary);
     text-decoration: none;
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: 0.92rem;
     transition: var(--transition);
+    padding: 0.4rem 0;
+    border-radius: 6px;
+    position: relative;
+}
+
+.method-link::after {
+    content: '→';
+    transition: var(--transition);
+    margin-left: 0.2rem;
 }
 
 .method-link:hover {
     color: var(--yellow-light);
+    transform: translateX(2px);
+}
+
+.method-link:hover::after {
     transform: translateX(3px);
 }
 
@@ -3957,6 +4033,81 @@ p {
     min-height: 100px;
 }
 
+/* Custom Checkbox Styles */
+.form-checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.form-checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.form-checkbox-label {
+    position: relative;
+    padding-left: 2rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #cccccc;
+    cursor: pointer;
+    user-select: none;
+}
+
+.form-checkbox-label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.125rem;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    transition: var(--transition);
+}
+
+.form-checkbox:checked + .form-checkbox-label::before {
+    background: var(--yellow-primary);
+    border-color: var(--yellow-primary);
+}
+
+.form-checkbox-label::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 8px;
+    width: 8px;
+    height: 4px;
+    border: 2px solid var(--black-primary);
+    border-top: none;
+    border-right: none;
+    transform: rotate(-45deg);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.form-checkbox:checked + .form-checkbox-label::after {
+    opacity: 1;
+}
+
+.form-checkbox:focus + .form-checkbox-label::before {
+    box-shadow: 0 0 0 3px rgba(244, 208, 78, 0.2);
+}
+
+.privacy-link {
+    color: var(--yellow-primary);
+    text-decoration: underline;
+    transition: var(--transition);
+}
+
+.privacy-link:hover {
+    color: var(--yellow-light);
+}
+
 .form-submit-btn {
     display: flex;
     align-items: center;
@@ -4027,12 +4178,22 @@ p {
     }
     
     .contact-method {
-        padding: 1.25rem;
+        padding: 1.5rem;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
     }
     
     .method-icon {
-        width: 40px;
-        height: 40px;
+        width: 48px;
+        height: 48px;
+    }
+    
+    .method-content h4 {
+        font-size: 1.1rem;
+    }
+    
+    .method-content p {
+        font-size: 0.9rem;
     }
     
     .social-links {
@@ -4054,9 +4215,29 @@ p {
     }
     
     .contact-method {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: row;
+        text-align: left;
         gap: 1rem;
+        padding: 1.25rem;
+    }
+    
+    .method-icon {
+        width: 44px;
+        height: 44px;
+    }
+    
+    .method-content h4 {
+        font-size: 1rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .method-content p {
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .method-link {
+        font-size: 0.85rem;
     }
 }
 
@@ -4263,4 +4444,104 @@ p {
 .cta-title {
     line-height: 1.2;
     overflow: visible;
+}
+
+/* Aumento geral do tamanho de texto para mobile */
+@media (max-width: 768px) {
+    /* Aumentar tamanho base da fonte */
+    html {
+        font-size: 18px; /* Aumenta de 16px para 18px */
+    }
+    
+    /* Ajustar headings para mobile */
+    h1 { font-size: clamp(2.8rem, 6vw, 4.5rem); }
+    h2 { font-size: clamp(2.2rem, 5vw, 3.5rem); }
+    h3 { font-size: clamp(1.8rem, 4vw, 2.5rem); }
+    h4 { font-size: clamp(1.5rem, 3vw, 2rem); }
+    h5 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); }
+    h6 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
+    
+    /* Aumentar parágrafos */
+    p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+    }
+    
+    /* Texto de botões */
+    .btn {
+        font-size: 1.1rem;
+        padding: 1rem 2rem;
+    }
+    
+    /* Texto de navegação */
+    .nav-link {
+        font-size: 1.3rem !important;
+    }
+    
+    /* Texto de formulários */
+    .form-input,
+    .form-textarea {
+        font-size: 1.1rem;
+    }
+    
+    .form-label {
+        font-size: 1.1rem;
+    }
+    
+    /* Checkbox responsiva */
+    .form-checkbox-label {
+        font-size: 1rem;
+        padding-left: 2.2rem;
+    }
+    
+    .form-checkbox-label::before {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .form-checkbox-label::after {
+        left: 7px;
+        top: 9px;
+    }
+    
+    /* Texto de cards */
+    .spotlight-title {
+        font-size: 1.8rem;
+    }
+    
+    .spotlight-description {
+        font-size: 1.1rem;
+    }
+    
+    .spotlight-features li {
+        font-size: 1rem;
+    }
+    
+    /* Texto do hero */
+    .hero-title {
+        font-size: clamp(2.8rem, 8vw, 3.5rem) !important;
+    }
+    
+    .benefit-item {
+        font-size: 1.1rem;
+    }
+    
+    /* Texto da seção de contato */
+    .contact-info h4,
+    .method-content h4 {
+        font-size: 1.3rem;
+    }
+    
+    .method-content p {
+        font-size: 1.1rem;
+    }
+    
+    /* Preços */
+    .price-value {
+        font-size: 1.8rem;
+    }
+    
+    .price-from {
+        font-size: 1rem;
+    }
 }
