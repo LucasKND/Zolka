@@ -3645,6 +3645,50 @@ p {
     transform: scale(1.1);
 }
 
+/* Estilo específico para o ícone bullhorn */
+.bullhorn-icon {
+    filter: brightness(0) saturate(100%) invert(85%) sepia(45%) saturate(364%) hue-rotate(356deg) brightness(100%) contrast(94%);
+    transition: var(--transition);
+}
+
+.service-card:hover .bullhorn-icon {
+    filter: brightness(0) saturate(100%) invert(85%) sepia(45%) saturate(364%) hue-rotate(356deg) brightness(110%) contrast(94%);
+    transform: scale(1.1);
+}
+
+/* Estilo específico para o ícone chat-bot */
+.chat-bot-icon {
+    filter: brightness(0) saturate(100%) invert(85%) sepia(45%) saturate(364%) hue-rotate(356deg) brightness(100%) contrast(94%);
+    transition: var(--transition);
+}
+
+.card-spotlight:hover .chat-bot-icon {
+    filter: brightness(0) saturate(100%) invert(85%) sepia(45%) saturate(364%) hue-rotate(356deg) brightness(110%) contrast(94%);
+    transform: scale(1.1);
+}
+
+/* Estilo específico para o ícone ai */
+.ai-icon {
+    filter: brightness(0) saturate(100%) invert(85%) sepia(45%) saturate(364%) hue-rotate(356deg) brightness(100%) contrast(94%);
+    transition: var(--transition);
+}
+
+.card-spotlight:hover .ai-icon {
+    filter: brightness(0) saturate(100%) invert(85%) sepia(45%) saturate(364%) hue-rotate(356deg) brightness(110%) contrast(94%);
+    transform: scale(1.1);
+}
+
+/* Estilo específico para o ícone robotic-process */
+.robotic-process-icon {
+    filter: brightness(0) saturate(100%) invert(85%) sepia(45%) saturate(364%) hue-rotate(356deg) brightness(100%) contrast(94%);
+    transition: var(--transition);
+}
+
+.card-spotlight:hover .robotic-process-icon {
+    filter: brightness(0) saturate(100%) invert(85%) sepia(45%) saturate(364%) hue-rotate(356deg) brightness(110%) contrast(94%);
+    transform: scale(1.1);
+}
+
 .service-title {
     font-size: 1.5rem;
     font-weight: 600;
