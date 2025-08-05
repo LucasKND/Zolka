@@ -327,7 +327,7 @@ p {
 
 /* Lista de Benefícios do Hero */
 .hero-benefits {
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.75rem;
     max-width: 500px;
 }
 
@@ -891,6 +891,16 @@ p {
         padding: 0.4rem 0.8rem;
         font-size: 0.9rem;
     }
+    
+    /* Ajustar espaçamento entre benefits e botões em tablets */
+    .hero-benefits {
+        margin-bottom: 0.05rem;
+    }
+    
+    /* Ocultar o terceiro benefit item em tablets */
+    .benefit-item:nth-child(3) {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -993,7 +1003,7 @@ p {
     
     /* Benefícios responsivos */
     .hero-benefits {
-        margin-bottom: 2.5rem;
+        margin-bottom: 1.75rem;
         max-width: 100%;
         text-align: left;
     }
@@ -1086,7 +1096,7 @@ p {
     }
     
     .hero-benefits {
-        margin-bottom: 2.25rem;
+        margin-bottom: 1.5rem;
     }
     
     .benefit-item {
@@ -2652,6 +2662,30 @@ p {
         width: 100%;
         max-width: 320px;
         margin: 0 auto;
+        height: auto;
+        min-height: 450px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Adjust chat messages height in mobile */
+    .mobile-chat .chat-messages {
+        flex: 1;
+        height: auto;
+        min-height: 300px;
+    }
+
+    /* Center button vertically in mobile chat input */
+    .mobile-chat .chat-input {
+        justify-content: center;
+        align-items: center;
+        min-height: 60px;
+        margin-top: auto;
+    }
+
+    .mobile-chat .chat-input .button {
+        margin: 0;
+        align-self: center;
     }
 
     .hero-title {
