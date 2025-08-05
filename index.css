@@ -293,7 +293,7 @@ p {
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 600;
     line-height: 1.1;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.6rem;
     color: var(--white-primary);
     letter-spacing: -0.04em;
 }
@@ -316,7 +316,7 @@ p {
 
 .hero-description {
     font-family: var(--font-body);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 300;
     color: rgba(255, 255, 255, 0.8);
     margin-bottom: 2.5rem;
@@ -981,7 +981,7 @@ p {
     
     .hero-title {
         font-size: clamp(2rem, 8vw, 2.8rem);
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.3rem;
         line-height: 1.2;
     }
     
@@ -1082,7 +1082,7 @@ p {
     
     .hero-title {
         font-size: clamp(2.2rem, 7.5vw, 2.6rem);
-        margin-bottom: 1.375rem;
+        margin-bottom: 1.275rem;
     }
     
     .hero-benefits {
@@ -1136,7 +1136,7 @@ p {
     }
     
     .hero-title {
-        font-size: clamp(1.6rem, 6.5vw, 2rem);
+        font-size: clamp(1.5rem, 6.5vw, 2rem);
         margin-bottom: 1rem;
     }
     

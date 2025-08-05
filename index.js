@@ -563,16 +563,15 @@ function formatPhoneNumber(e) {
 }
 
 function handleContactSubmit(e) {
-    e.preventDefault();
-    
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
     
     // Validar campos obrigatórios
-    const requiredFields = ['name', 'email', 'phone', 'service'];
+    const requiredFields = ['name', 'email', 'whatsapp', 'privacy_consent'];
     const missingFields = requiredFields.filter(field => !data[field]);
     
     if (missingFields.length > 0) {
+        e.preventDefault();
         alert('Por favor, preencha todos os campos obrigatórios.');
         return;
     }
@@ -580,61 +579,22 @@ function handleContactSubmit(e) {
     // Validar email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(data.email)) {
+        e.preventDefault();
         alert('Por favor, insira um e-mail válido.');
         return;
     }
     
-    // Simular envio
+    // Se chegou até aqui, todos os campos estão válidos
+    // Permitir que o FormSubmit.co processe o formulário
+    // Não prevenir o default para que o form seja enviado normalmente
+    
+    // Feedback visual opcional
     const submitBtn = e.target.querySelector('.form-submit-btn');
-    const originalText = submitBtn.innerHTML;
-    
-    submitBtn.innerHTML = '<span class="btn-text">Enviando...</span>';
-    submitBtn.disabled = true;
-    
-    // Criar mensagem para WhatsApp
-    const whatsappMessage = `
-🌟 *Nova Solicitação de Orçamento - Zolka*
-
-👤 *Nome:* ${data.name}
-📧 *E-mail:* ${data.email}
-📱 *WhatsApp:* ${data.phone}
-🏢 *Empresa:* ${data.company || 'Não informado'}
-🎯 *Serviço:* ${getServiceName(data.service)}
-
-💬 *Mensagem:*
-${data.message || 'Nenhuma mensagem adicional'}
-
----
-Enviado através do site da Zolka
-    `.trim();
-    
-    setTimeout(() => {
-        // Redirecionar para WhatsApp
-        const whatsappUrl = `https://wa.me/5524920041669?text=${encodeURIComponent(whatsappMessage)}`;
-        window.open(whatsappUrl, '_blank');
-        
-        // Resetar formulário
-        e.target.reset();
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-        
-        // Mostrar confirmação
-        showContactSuccess();
-    }, 1500);
+    if (submitBtn) {
+        submitBtn.innerHTML = '<span class="btn-text">Enviando...</span>';
+        submitBtn.disabled = true;
+    }
 }
-
-function getServiceName(serviceValue) {
-    const services = {
-        'agente-ia': 'Agente de IA',
-        'automacoes': 'Automações Inteligentes',
-        'sites': 'Sites e Landing Pages',
-        'trafego': 'Tráfego Pago',
-        'design': 'Design e Branding',
-        'social': 'Gestão de Redes Sociais',
-        'outros': 'Outros serviços'
-    };
-    
-    return services[serviceValue] || serviceValue;
 }
 
 function showContactSuccess() {
