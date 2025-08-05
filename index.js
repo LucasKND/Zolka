@@ -506,18 +506,6 @@ function initFooterSmoothScroll() {
     });
 }
 
-// Footer CTA Button
-function initFooterCTA() {
-    const footerCTAButton = document.querySelector('.footer-cta-button');
-    
-    if (footerCTAButton) {
-        footerCTAButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            alert('Obrigado pelo interesse! Em breve entraremos em contato para discutir seu projeto. 📧');
-        });
-    }
-}
-
 // Inicializar spotlight cards quando a página carregar
 document.addEventListener('DOMContentLoaded', () => {
     // Inicializar spotlight cards
@@ -525,9 +513,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Inicializar footer smooth scroll
     initFooterSmoothScroll();
-    
-    // Inicializar footer CTA
-    initFooterCTA();
     
     // Inicializar formulário de contato
     initContactForm();
@@ -566,13 +551,18 @@ function handleContactSubmit(e) {
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
     
+    // Debug: verificar dados do formulário
+    console.log('Dados do formulário:', data);
+    
     // Validar campos obrigatórios
     const requiredFields = ['name', 'email', 'whatsapp', 'privacy_consent'];
     const missingFields = requiredFields.filter(field => !data[field]);
     
+    console.log('Campos faltando:', missingFields);
+    
     if (missingFields.length > 0) {
         e.preventDefault();
-        alert('Por favor, preencha todos os campos obrigatórios.');
+        alert('Por favor, preencha todos os campos obrigatórios: ' + missingFields.join(', '));
         return;
     }
     
@@ -594,7 +584,6 @@ function handleContactSubmit(e) {
         submitBtn.innerHTML = '<span class="btn-text">Enviando...</span>';
         submitBtn.disabled = true;
     }
-}
 }
 
 function showContactSuccess() {
