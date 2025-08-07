@@ -1,6 +1,7 @@
 // DOM Elements
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
+const navCloseBtn = document.querySelector('.nav-close-btn');
 const navbar = document.querySelector('.navbar');
 const navLinks = document.querySelectorAll('.nav-link');
 const scrollProgressBar = document.querySelector('.scroll-progress-bar');
@@ -25,6 +26,40 @@ navLinks.forEach(link => {
         document.body.style.overflow = 'auto';
     });
 });
+
+// Close mobile menu when clicking on close button (pseudo-element)
+navMenu.addEventListener('click', (e) => {
+    if (navMenu.classList.contains('active')) {
+        const rect = navMenu.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const clickY = e.clientY - rect.top;
+        
+        // Área do X: top: 20px, right: 1.5rem, width: 50px, height: 50px
+        const closeButtonArea = {
+            x: rect.width - 74, // 1.5rem (24px) + 50px width
+            y: 20,
+            width: 50,
+            height: 50
+        };
+        
+        if (clickX >= closeButtonArea.x && clickX <= closeButtonArea.x + closeButtonArea.width &&
+            clickY >= closeButtonArea.y && clickY <= closeButtonArea.y + closeButtonArea.height) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            e.stopPropagation();
+        }
+    }
+});
+
+// Close mobile menu when clicking on close button
+if (navCloseBtn) {
+    navCloseBtn.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+}
 
 // Scroll Progress Bar and Active Section Detection
 function updateScrollProgress() {
@@ -343,7 +378,6 @@ document.addEventListener('DOMContentLoaded', function() {
 // Funcionalidade dos botões do hero
 document.addEventListener('DOMContentLoaded', function() {
     const btnProjetos = document.querySelector('.btn-primary');
-    const btnContato = document.querySelector('.btn-secondary');
     
     // Botão "Nossos Projetos" - scroll para a segunda section
     if (btnProjetos) {
@@ -356,14 +390,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     behavior: 'smooth'
                 });
             }
-        });
-    }
-    
-    // Botão "Fale Conosco" - pode ser customizado para abrir modal de contato ou scroll para footer
-    if (btnContato) {
-        btnContato.addEventListener('click', function() {
-            // Por enquanto, apenas um alerta - pode ser customizado
-            alert('Entre em contato conosco:\n\nE-mail: contato@zolkatech.com\nTelefone: (48) 99999-9999');
         });
     }
 });
