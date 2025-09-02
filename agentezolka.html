@@ -1,0 +1,2190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Agente Zolka - Revolucione seu Atendimento com IA | Zolka</title>
+    <meta name="description" content="Conheça o Agente Zolka, sua solução em IA para automatizar atendimento, qualificar leads e aumentar vendas até 200%. Demonstração exclusiva disponível.">
+    <meta name="keywords" content="agente zolka, IA atendimento, automação whatsapp, chatbot inteligente, vendas automatizadas">
+    <meta name="author" content="Zolka Tecnologia e Inteligência Artificial">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Agente Zolka - Revolucione seu Atendimento com IA">
+    <meta property="og:description" content="Agente de IA que trabalha 24h automatizando seu atendimento e aumentando suas vendas. Veja como funciona!">
+    <meta property="og:url" content="https://zolka.com.br/agentezolka.html">
+    <meta property="og:image" content="https://zolka.com.br/assets/ZOLKA_logo.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/LogoFavicon.jpg" type="image/jpeg">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="index.css">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* Página específica - Agente Zolka */
+        
+        /* Ajustes na navegação */
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .nav-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        /* Botão WhatsApp na navegação */
+        .nav-link.cta-whatsapp {
+            background: linear-gradient(135deg, #25D366 0%, #20B858 100%);
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-link.cta-whatsapp:hover {
+            background: linear-gradient(135deg, #20B858 0%, #1a9c4a 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        .nav-link.cta-whatsapp i {
+            font-size: 1.1em;
+        }
+        
+        /* Responsivo - Mobile */
+        @media (max-width: 768px) {
+            .nav-link.cta-whatsapp {
+                padding: 8px 15px;
+                font-size: 0.9em;
+                gap: 6px;
+            }
+            
+            .nav-link.cta-whatsapp i {
+                font-size: 1em;
+            }
+            
+            .nav-menu {
+                gap: 15px;
+            }
+            
+            /* Carrossel Infinito para Integrações */
+            .integracoes-section {
+                padding-left: 0;
+                padding-right: 0;
+            }
+            
+            .integracoes-content {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            
+            .integracoes-grid {
+                display: flex;
+                overflow: hidden;
+                position: relative;
+                width: 100vw;
+                margin-left: calc(-50vw + 50%);
+                padding: 20px 0;
+            }
+            
+            .carousel-track {
+                display: flex;
+                animation: carouselScroll 20s linear infinite;
+                gap: 20px;
+                width: max-content;
+            }
+            
+            .integracao-card {
+                flex: 0 0 280px;
+                min-width: 280px;
+            }
+            
+            @keyframes carouselScroll {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(-100%);
+                }
+            }
+            
+            .carousel-track:hover {
+                animation-play-state: paused;
+            }
+        }
+        
+        .hero-agente {
+            background: linear-gradient(135deg, var(--black-primary) 0%, var(--black-light) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-agente::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(244, 208, 78, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(244, 208, 78, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .hero-agente-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-agente-content h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: var(--white-primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero-agente-content .highlight {
+            color: var(--yellow-primary);
+            text-shadow: 0 0 20px rgba(244, 208, 78, 0.3);
+        }
+        
+        .hero-agente-content p {
+            font-size: 1.2rem;
+            color: var(--white-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .hero-agente-video {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, var(--yellow-primary), var(--yellow-light));
+            padding: 3px;
+        }
+        
+        .hero-agente-video video {
+            width: 100%;
+            height: auto;
+            border-radius: 17px;
+            display: block;
+        }
+        
+        .hero-agente-video::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(244, 208, 78, 0.1), transparent);
+            animation: shimmer 3s infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn-zolka {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 200px;
+        }
+        
+        .btn-primary-zolka {
+            background: linear-gradient(135deg, var(--yellow-primary), var(--yellow-light));
+            color: var(--black-primary);
+            box-shadow: 0 10px 30px rgba(244, 208, 78, 0.3);
+        }
+        
+        .btn-primary-zolka:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(244, 208, 78, 0.4);
+        }
+        
+        .btn-secondary-zolka {
+            background: transparent;
+            color: var(--white-primary);
+            border: 2px solid var(--yellow-primary);
+        }
+        
+        .btn-secondary-zolka:hover {
+            background: var(--yellow-primary);
+            color: var(--black-primary);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-agente-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+            
+            .hero-agente {
+                padding: 120px 0 60px;
+            }
+            
+            .cta-buttons {
+                justify-content: center;
+                flex-direction: column;
+            }
+            
+            .btn-zolka {
+                width: 100%;
+            }
+        }
+        
+        /* Funcionário de IA Section */
+        .funcionario-ia-section {
+            padding: 100px 0;
+            background: var(--black-primary);
+            position: relative;
+        }
+        
+        .funcionario-ia-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .funcionario-ia-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(244, 208, 78, 0.1), rgba(244, 208, 78, 0.2));
+            color: var(--yellow-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(244, 208, 78, 0.3);
+        }
+        
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--white-primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .section-description {
+            font-size: 1.2rem;
+            color: var(--white-light);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .funcionario-ia-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+        
+        /* Mobile Mockup */
+        .mobile-showcase {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .mobile-mockup {
+            width: 300px;
+            height: 600px;
+            background: #000;
+            border-radius: 30px;
+            padding: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        .mobile-screen {
+            width: 100%;
+            height: 100%;
+            background: var(--black-light);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        
+        .chat-interface {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .chat-header-mobile {
+            padding: 1rem;
+            border-bottom: 1px solid var(--black-lighter);
+            background: var(--black-dark);
+        }
+        
+        .profile-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .profile-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .profile-details {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .profile-name {
+            color: var(--white-primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .profile-status {
+            color: #4FCB4F;
+            font-size: 0.8rem;
+        }
+        
+        .chat-messages-mobile {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .message-bubble {
+            max-width: 80%;
+            padding: 0.75rem 1rem;
+            border-radius: 18px;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+        
+        .message-bubble.ai-message {
+            background: var(--black-lighter);
+            color: var(--white-primary);
+            align-self: flex-start;
+        }
+        
+        .message-bubble.user-message {
+            background: var(--yellow-primary);
+            color: var(--black-primary);
+            align-self: flex-end;
+        }
+        
+        .read-more {
+            color: var(--yellow-primary);
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .product-links {
+            margin-top: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        
+        .product-link {
+            color: var(--yellow-primary);
+            text-decoration: none;
+            font-size: 0.75rem;
+            line-height: 1.3;
+        }
+        
+        .chat-input-mobile {
+            padding: 1rem;
+            border-top: 1px solid var(--black-lighter);
+            background: var(--black-dark);
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        
+        .chat-input-mobile input {
+            flex: 1;
+            background: var(--black-lighter);
+            border: none;
+            padding: 0.75rem;
+            border-radius: 20px;
+            color: var(--white-primary);
+            font-size: 0.85rem;
+        }
+        
+        .send-btn {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, var(--black-light), var(--black-lighter));
+            border: 1px solid rgba(244, 208, 78, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(244, 208, 78, 0.3);
+            box-shadow: 0 10px 30px rgba(244, 208, 78, 0.1);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(244, 208, 78, 0.1), rgba(244, 208, 78, 0.2));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-title {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--white-primary);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        
+        .feature-description {
+            color: var(--white-light);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        
+        /* CTA Button */
+        .funcionario-ia-cta {
+            text-align: center;
+        }
+        
+        .btn-cta-funcionario {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--yellow-primary), var(--yellow-light));
+            color: var(--black-primary);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(244, 208, 78, 0.3);
+        }
+        
+        .btn-cta-funcionario:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(244, 208, 78, 0.4);
+        }
+        
+        /* Responsive para Funcionário IA Section */
+        @media (max-width: 768px) {
+            .funcionario-ia-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .mobile-mockup {
+                width: 280px;
+                height: 560px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .feature-card {
+                padding: 1.5rem;
+            }
+        }
+        
+        /* Para Quem Faz Acontecer Section */
+        .ideal-para-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--black-light), var(--black-primary));
+            position: relative;
+        }
+        
+        .ideal-para-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .ideal-para-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .ideal-para-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .ideal-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(244, 208, 78, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ideal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(244, 208, 78, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .ideal-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(244, 208, 78, 0.4);
+            box-shadow: 0 20px 40px rgba(244, 208, 78, 0.15);
+        }
+        
+        .ideal-card:hover::before {
+            left: 100%;
+        }
+        
+        .ideal-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(244, 208, 78, 0.1), rgba(244, 208, 78, 0.3));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .ideal-card:hover .ideal-icon {
+            background: linear-gradient(135deg, rgba(244, 208, 78, 0.2), rgba(244, 208, 78, 0.4));
+            transform: scale(1.1);
+        }
+        
+        .ideal-title {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--white-primary);
+            line-height: 1.4;
+            margin: 0;
+        }
+        
+        .highlight-text {
+            color: var(--yellow-primary);
+            font-weight: 700;
+        }
+        
+        .ideal-cta {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(244, 208, 78, 0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .cta-description {
+            font-size: 1.2rem;
+            color: var(--white-light);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        
+        .btn-cta-ideal {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--yellow-primary), var(--yellow-light));
+            color: var(--black-primary);
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 15px 35px rgba(244, 208, 78, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-cta-ideal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .btn-cta-ideal:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 45px rgba(244, 208, 78, 0.4);
+        }
+        
+        .btn-cta-ideal:hover::before {
+            left: 100%;
+        }
+        
+        /* Responsive para Ideal Para Section */
+        @media (max-width: 1024px) {
+            .ideal-para-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .ideal-para-section {
+                padding: 80px 0;
+            }
+            
+            .ideal-card {
+                padding: 2rem;
+            }
+            
+            .ideal-title {
+                font-size: 1.2rem;
+            }
+            
+            .ideal-cta {
+                padding: 2rem;
+            }
+            
+            .cta-description {
+                font-size: 1.1rem;
+            }
+        }
+        
+        /* Time de Funcionários IA Section */
+        .time-funcionarios-section {
+            padding: 100px 0;
+            background: var(--black-primary);
+            position: relative;
+        }
+        
+        .time-funcionarios-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .time-funcionarios-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .funcoes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        .funcao-column {
+            background: linear-gradient(135deg, var(--black-light), var(--black-lighter));
+            border: 1px solid rgba(244, 208, 78, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .funcao-column::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--yellow-primary), var(--yellow-light));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .funcao-column:hover {
+            transform: translateY(-5px);
+            border-color: rgba(244, 208, 78, 0.3);
+            box-shadow: 0 15px 35px rgba(244, 208, 78, 0.1);
+        }
+        
+        .funcao-column:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .funcao-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white-primary);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .funcao-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 2px;
+            background: var(--yellow-primary);
+        }
+        
+        .funcao-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .funcao-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+        }
+        
+        .funcao-item:hover {
+            background: rgba(244, 208, 78, 0.05);
+            transform: translateX(5px);
+        }
+        
+        .check-icon {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, rgba(244, 208, 78, 0.2), rgba(244, 208, 78, 0.3));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .funcao-item span {
+            color: var(--white-light);
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+        
+        .time-funcionarios-cta {
+            background: linear-gradient(135deg, rgba(244, 208, 78, 0.1), rgba(244, 208, 78, 0.05));
+            border: 1px solid rgba(244, 208, 78, 0.2);
+            border-radius: 24px;
+            padding: 3rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .time-funcionarios-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(244, 208, 78, 0.1) 0%, transparent 50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(0.8); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-title {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--white-primary);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        
+        .cta-description {
+            font-size: 1.2rem;
+            color: var(--white-light);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+        
+        .btn-cta-time {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--yellow-primary), var(--yellow-light));
+            color: var(--black-primary);
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 15px 35px rgba(244, 208, 78, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-cta-time::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .btn-cta-time:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 45px rgba(244, 208, 78, 0.4);
+        }
+        
+        .btn-cta-time:hover::before {
+            left: 100%;
+        }
+        
+        /* Responsive para Time de Funcionários Section */
+        @media (max-width: 1024px) {
+            .funcoes-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .time-funcionarios-section {
+                padding: 80px 0;
+            }
+            
+            .funcoes-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .funcao-column {
+                padding: 2rem;
+            }
+            
+            .funcao-title {
+                font-size: 1.3rem;
+            }
+            
+            .time-funcionarios-cta {
+                padding: 2rem;
+            }
+            
+            .cta-title {
+                font-size: 1.7rem;
+            }
+            
+            .cta-description {
+                font-size: 1.1rem;
+            }
+        }
+        
+        /* Mockups de Celular */
+        .phone-mockup-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .phone-frame {
+            width: 280px;
+            background: linear-gradient(135deg, var(--black-primary), var(--black-light));
+            border-radius: 20px;
+            border: 2px solid rgba(244, 208, 78, 0.2);
+            box-shadow: 0 12px 40px rgba(244, 208, 78, 0.15);
+            overflow: hidden;
+            font-family: var(--font-body);
+            backdrop-filter: blur(10px);
+        }
+        
+        .phone-frame.highlighted {
+            border: 2px solid var(--yellow-primary);
+            box-shadow: 0 15px 50px rgba(244, 208, 78, 0.3);
+        }
+        
+        .chat-header {
+            background: linear-gradient(135deg, var(--black-primary), var(--black-light));
+            padding: 16px;
+            border-bottom: 1px solid rgba(244, 208, 78, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .profile-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .profile-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--yellow-primary);
+            box-shadow: 0 4px 15px rgba(244, 208, 78, 0.3);
+        }
+        
+        .profile-avatar.suporte {
+            border-color: var(--yellow-primary);
+            box-shadow: 0 4px 15px rgba(244, 208, 78, 0.3);
+        }
+        
+        .profile-avatar.atendimento {
+            border-color: var(--yellow-light);
+            box-shadow: 0 4px 15px rgba(244, 208, 78, 0.25);
+        }
+        
+        .profile-avatar.vendas {
+            border-color: var(--yellow-primary);
+            box-shadow: 0 4px 15px rgba(244, 208, 78, 0.4);
+        }
+        
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .profile-details h4 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--white-primary);
+            font-family: var(--font-heading);
+        }
+        
+        .status {
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .status.online {
+            color: var(--yellow-primary);
+        }
+        
+        .chat-messages {
+            padding: 20px 16px;
+            min-height: 300px;
+            max-height: 300px;
+            overflow-y: auto;
+            background: linear-gradient(135deg, var(--black-light), var(--black-lighter));
+        }
+        
+        .message {
+            margin-bottom: 16px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .message.sent {
+            align-items: flex-end;
+        }
+        
+        .message.received {
+            align-items: flex-start;
+        }
+        
+        .message p {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--white-primary);
+            padding: 10px 14px;
+            border-radius: 16px;
+            margin: 0 0 4px 0;
+            max-width: 80%;
+            font-size: 14px;
+            line-height: 1.4;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .message.sent p {
+            background: linear-gradient(135deg, var(--yellow-primary), var(--yellow-light));
+            color: var(--black-primary);
+            border-bottom-right-radius: 4px;
+            border: 1px solid rgba(244, 208, 78, 0.3);
+            font-weight: 500;
+        }
+        
+        .message.received p {
+            border-bottom-left-radius: 4px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(244, 208, 78, 0.1);
+        }
+        
+        .message .time {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 400;
+        }
+        
+        .chat-footer {
+            background: linear-gradient(135deg, var(--black-primary), var(--black-light));
+            padding: 12px 16px;
+            border-top: 1px solid rgba(244, 208, 78, 0.1);
+            text-align: center;
+        }
+        
+        .agent-type {
+            background: rgba(244, 208, 78, 0.1);
+            color: var(--yellow-primary);
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(244, 208, 78, 0.2);
+            font-family: var(--font-heading);
+        }
+        
+        .agent-type.highlighted {
+            background: linear-gradient(135deg, var(--yellow-primary), var(--yellow-light));
+            color: var(--black-primary);
+            border: 1px solid var(--yellow-primary);
+            box-shadow: 0 4px 15px rgba(244, 208, 78, 0.3);
+        }
+        
+        /* Responsive para Mockups */
+        @media (max-width: 1024px) {
+            .funcoes-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .phone-frame {
+                width: 300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .phone-frame {
+                width: 280px;
+            }
+            
+            .chat-messages {
+                min-height: 250px;
+                max-height: 250px;
+                padding: 16px 12px;
+            }
+            
+            .profile-avatar {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .profile-details h4 {
+                font-size: 15px;
+            }
+        }
+        
+        /* Integrações Section */
+        .integracoes-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--black-primary), var(--black-light));
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .integracoes-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(244, 208, 78, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(244, 208, 78, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .integracoes-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .integracoes-header {
+            max-width: 600px;
+            margin-bottom: 4rem;
+        }
+        
+        .btn-cta-integracoes {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--yellow-primary), var(--yellow-light));
+            color: var(--black-primary);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(244, 208, 78, 0.3);
+            margin-top: 2rem;
+        }
+        
+        .btn-cta-integracoes:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(244, 208, 78, 0.4);
+        }
+        
+        .integracoes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        
+        /* Reset mobile carousel styles for desktop */
+        @media (min-width: 769px) {
+            .integracoes-section {
+                padding-left: initial;
+                padding-right: initial;
+            }
+            
+            .integracoes-content {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+            
+            .integracoes-grid {
+                display: grid !important;
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 1.5rem !important;
+                width: auto !important;
+                margin-left: 0 !important;
+                padding: 0 !important;
+                overflow: visible !important;
+            }
+            
+            .carousel-track {
+                display: contents !important;
+                animation: none !important;
+            }
+            
+            /* Esconder cards duplicados no desktop */
+            .carousel-duplicate {
+                display: none !important;
+            }
+        }
+        
+        .integracao-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .integracao-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .integracao-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(244, 208, 78, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(244, 208, 78, 0.1);
+        }
+        
+        .integracao-card:hover::before {
+            left: 100%;
+        }
+        
+        .integracao-card.special {
+            background: linear-gradient(135deg, rgba(244, 208, 78, 0.1), rgba(244, 208, 78, 0.05));
+            border-color: rgba(244, 208, 78, 0.3);
+        }
+        
+        .integracao-card.special:hover {
+            background: linear-gradient(135deg, rgba(244, 208, 78, 0.15), rgba(244, 208, 78, 0.08));
+            border-color: rgba(244, 208, 78, 0.5);
+        }
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .card-icon.whatsapp {
+            background: linear-gradient(135deg, rgba(37, 211, 102, 0.1), rgba(37, 211, 102, 0.2));
+        }
+        
+        .card-icon.wordpress {
+            background: linear-gradient(135deg, rgba(33, 117, 155, 0.1), rgba(33, 117, 155, 0.2));
+        }
+        
+        .card-icon.excel {
+            background: linear-gradient(135deg, rgba(29, 111, 66, 0.1), rgba(29, 111, 66, 0.2));
+        }
+        
+        .card-icon.whatsapp-business {
+            background: linear-gradient(135deg, rgba(7, 94, 84, 0.1), rgba(7, 94, 84, 0.2));
+        }
+        
+        .card-icon.manychat {
+            background: linear-gradient(135deg, rgba(155, 89, 182, 0.1), rgba(155, 89, 182, 0.2));
+        }
+        
+        .card-icon.instagram {
+            background: linear-gradient(135deg, rgba(225, 48, 108, 0.1), rgba(64, 93, 230, 0.1));
+        }
+        
+        .card-icon.make {
+            background: linear-gradient(135deg, rgba(108, 87, 216, 0.1), rgba(108, 87, 216, 0.2));
+        }
+        
+        .card-icon.google-calendar {
+            background: linear-gradient(135deg, rgba(66, 133, 244, 0.1), rgba(66, 133, 244, 0.2));
+        }
+        
+        .card-icon.api {
+            background: linear-gradient(135deg, rgba(244, 208, 78, 0.2), rgba(244, 208, 78, 0.3));
+        }
+        
+        .integracao-card:hover .card-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--white-primary);
+            margin-bottom: 0.25rem;
+            line-height: 1.3;
+        }
+        
+        .card-subtitle {
+            color: var(--white-light);
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+        
+        .integracao-card.special .card-title {
+            color: var(--yellow-primary);
+        }
+        
+        /* Responsive para Integrações Section */
+        @media (max-width: 1024px) {
+            .integracoes-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .integracoes-section {
+                padding: 80px 0;
+            }
+            
+            .integracoes-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .integracao-card {
+                padding: 1rem;
+            }
+            
+            .card-icon {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .integracoes-header {
+                text-align: center;
+                margin-bottom: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="scroll-progress-bar"></div>
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="assets/ZOLKA_logoBranca.png" alt="Zolka Logo" class="logo-image">
+                </a>
+            </div>
+            
+            <!-- Desktop Menu -->
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://wa.me/5511999999999?text=Olá! Gostaria de saber mais sobre o Agente Zolka" class="nav-link cta-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Contato
+                    </a>
+                </li>
+            </ul>
+            
+            <!-- Hamburger Menu -->
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section - Agente Zolka -->
+    <section class="hero-agente">
+        <!-- DarkVeil Background Canvas -->
+        <canvas id="darkveil-canvas" class="darkveil-canvas"></canvas>
+        
+        <div class="hero-agente-container">
+            <div class="hero-agente-content" data-aos="fade-right" data-aos-duration="1000">
+                <h1>
+                    Conheça o <span class="highlight">Agente Zolka</span><br>
+                    Seu Funcionario de IA
+                </h1>
+                <p>
+                    Automatiza conversas, qualifica leads e aumenta suas vendas em até 200% trabalhando 24 horas por dia.
+                </p>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/5524920041669?text=Olá! Quero conhecer o Agente Zolka e ver uma demonstração!" 
+                       class="btn-zolka btn-primary-zolka" target="_blank">
+                        Quero meu agente
+                    </a>
+                    
+                </div>
+            </div>
+            <div class="hero-agente-video" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                <video autoplay muted loop playsinline>
+                    <source src="assets/ZolkaMascote.mp4" type="video/mp4">
+                    Seu navegador não suporta vídeos HTML5.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- O que é um funcionário de IA Section -->
+    <section class="funcionario-ia-section">
+        <div class="section-container">
+            <div class="funcionario-ia-content">
+                <!-- Header da Seção -->
+                <div class="funcionario-ia-header" data-aos="fade-up">
+                    <span class="section-tag">AI AGENTS</span>
+                    <h2 class="section-title">O que é um funcionário<br>de IA?</h2>
+                    <p class="section-description">
+                        Funcionários de IA são como ter um "ChatGPT" da sua empresa. Eles 
+                        entendem e respondem aos clientes, executam tarefas e trabalham 
+                        24/7 para o seu negócio.
+                    </p>
+                </div>
+
+                <div class="funcionario-ia-grid">
+                    <!-- Coluna Esquerda - Mockup Mobile -->
+                    <div class="mobile-showcase" data-aos="fade-right" data-aos-duration="1000">
+                        <div class="mobile-mockup">
+                            <div class="mobile-screen">
+                                <div class="chat-interface">
+                                    <div class="chat-header-mobile">
+                                        <div class="profile-info">
+                                            <img src="assets/MascotePerfil.jpg" alt="Agente Zolka" class="profile-avatar">
+                                            <div class="profile-details">
+                                                <span class="profile-name">Zolka</span>
+                                                <span class="profile-status">online</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="chat-messages-mobile">
+                                        <div class="message-bubble ai-message">
+                                            <p>Olá! Como posso ajudar você hoje?</p>
+                                        </div>
+                                        <div class="message-bubble user-message">
+                                            <p>Preciso de informações sobre como voce pode me ajudar</p>
+                                        </div>
+                                        <div class="message-bubble ai-message">
+                                            <p>Balance pode ajudar a aliviar os sintomas da vigorosa bacteriana, como o odor desagradável e o corrimento... <span class="read-more">Leia mais</span></p>
+                                        </div>
+                                        <div class="message-bubble ai-message">
+                                            <p>Você pode comprar os produtos da Gino-Canesten online ou em farmácias. Aqui estão algumas opções:</p>
+                                            <div class="product-links">
+                                                <a href="#" class="product-link"></a>
+                                                <a href="#" class="product-link">🏥 Farmácias: Você pode encontrar os produtos nas principais redes de farmácias...</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="chat-input-mobile">
+                                        <input type="text" placeholder="Mensagem..." readonly>
+                                        <button class="send-btn">📎</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Coluna Direita - Features -->
+                    <div class="features-grid" data-aos="fade-left" data-aos-duration="1000">
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="feature-icon">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="#F4D04E" stroke-width="2"/>
+                                    <circle cx="12" cy="7" r="4" stroke="#F4D04E" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <h3 class="feature-title">Age como se fosse um humano</h3>
+                            <p class="feature-description">
+                                Transforme a experiência do seu cliente com um atendimento 
+                                natural e humanizado, que está sempre disponível.
+                            </p>
+                        </div>
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="feature-icon">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" stroke="#F4D04E" stroke-width="2"/>
+                                    <line x1="8" y1="21" x2="16" y2="21" stroke="#F4D04E" stroke-width="2"/>
+                                    <line x1="12" y1="17" x2="12" y2="21" stroke="#F4D04E" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <h3 class="feature-title">Realiza tarefas automáticas</h3>
+                            <p class="feature-description">
+                                Deixe os processos repetitivos por conta da IA e libere sua 
+                                equipe para focar no que realmente importa.
+                            </p>
+                        </div>
+
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="feature-icon">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="12" r="3" stroke="#F4D04E" stroke-width="2"/>
+                                    <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1" stroke="#F4D04E" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <h3 class="feature-title">Busca informações em tempo real</h3>
+                            <p class="feature-description">
+                                Responde aos clientes com precisão e velocidade, com 
+                                informações da sua empresa e produtos sempre atualizadas.
+                            </p>
+                        </div>
+
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                            <div class="feature-icon">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 12l2 2 4-4" stroke="#F4D04E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="12" cy="12" r="9" stroke="#F4D04E" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <h3 class="feature-title">Toma decisões e resolve problemas</h3>
+                            <p class="feature-description">
+                                Permita que a IA decida o que fazer, resolvendo problemas sem 
+                                necessidade de intervenção e aumentando a eficiência.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="funcionario-ia-cta" data-aos="fade-up" data-aos-delay="500">
+                    <a href="https://wa.me/5524920041669?text=Olá! Quero criar meu funcionário de IA com a Zolka!" 
+                       class="btn-cta-funcionario" target="_blank">
+                        Criar funcionário IA →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Para Quem Faz Acontecer Section -->
+    <section class="ideal-para-section">
+        <div class="section-container">
+            <div class="ideal-para-content">
+                <!-- Header da Seção -->
+                <div class="ideal-para-header" data-aos="fade-up">
+                    <span class="section-tag">PARA QUEM FAZ ACONTECER</span>
+                    <h2 class="section-title">A Zolka é ideal para</h2>
+                </div>
+
+                <!-- Grid de Cards -->
+                <div class="ideal-para-grid">
+                    <div class="ideal-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="ideal-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 12h4l3 8 8-16 3 8h4" stroke="#F4D04E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="ideal-title">
+                            Agências que querem <span class="highlight-text">vender automação</span> como serviço para outras empresas
+                        </h3>
+                    </div>
+
+                    <div class="ideal-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="ideal-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="4" width="18" height="12" rx="1" stroke="#F4D04E" stroke-width="2"/>
+                                <path d="M7 8l4 4 4-4" stroke="#F4D04E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="ideal-title">
+                            Profissionais que querem <span class="highlight-text">escalar o suporte e vendas</span> da empresa onde atuam com Funcionários de IA
+                        </h3>
+                    </div>
+
+                    <div class="ideal-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="ideal-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="3" stroke="#F4D04E" stroke-width="2"/>
+                                <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1" stroke="#F4D04E" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="ideal-title">
+                            Empreendedores que querem <span class="highlight-text">transformar ideias em produtos e serviços</span> inovadores com IA
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- CTA Section -->
+                <div class="ideal-cta" data-aos="fade-up" data-aos-delay="400">
+                    <p class="cta-description">
+                        Independente do seu perfil, temos a solução ideal para automatizar e escalar seu negócio
+                    </p>
+                    <a href="https://wa.me/5524920041669?text=Olá! Quero descobrir como a Zolka pode ajudar meu negócio!" 
+                       class="btn-cta-ideal" target="_blank">
+                        Descobrir minha solução ideal
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Time de Funcionários IA Section -->
+    <section class="time-funcionarios-section">
+        <div class="section-container">
+            <div class="time-funcionarios-content">
+                <!-- Header da Seção -->
+                <div class="time-funcionarios-header" data-aos="fade-up">
+                    <span class="section-tag">FUNÇÕES</span>
+                    <h2 class="section-title">
+                         Imagine ter seu proprio<span class="highlight-text"> funcionários de IA</span></span>
+                    </h2>
+                    <p class="section-description">
+                        Conheça alguns dos cargos que os Funcionários de IA da Zolka podem ocupar:
+                    </p>
+                </div>
+
+                <!-- Grid de Funções -->
+                <div class="funcoes-grid">
+                    <!-- Mockup Suporte -->
+                    <div class="phone-mockup-container">
+                        <div class="phone-frame">
+                            <!-- Header do Chat -->
+                            <div class="chat-header">
+                                <div class="profile-info">
+                                    <div class="profile-avatar suporte">
+                                        <img src="assets/MascotePerfil.jpg" alt="Agente Zolka Suporte" />
+                                    </div>
+                                    <div class="profile-details">
+                                        <h4>Zolka - Suporte</h4>
+                                        <span class="status online">● Online</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Mensagens -->
+                            <div class="chat-messages">
+                                <div class="message received">
+                                    <p>Olá! Sou a Zolka 👋 Estou aqui para resolver qualquer dúvida sobre seu plano!</p>
+                                    <span class="time">14:30</span>
+                                </div>
+                                <div class="message sent">
+                                    <p>Meu agente de IA parou de responder no WhatsApp</p>
+                                    <span class="time">14:31</span>
+                                </div>
+                                <div class="message received">
+                                    <p>Entendi! Vou verificar seu bot. Qual o número conectado?</p>
+                                    <span class="time">14:32</span>
+                                </div>
+                                <div class="message sent">
+                                    <p>(11) 99999-9999</p>
+                                    <span class="time">14:33</span>
+                                </div>
+                                <div class="message received">
+                                    <p>Encontrei o problema! Era só uma atualização. Já está funcionando ✅</p>
+                                    <span class="time">14:34</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Footer -->
+                            <div class="chat-footer">
+                                <span class="agent-type">Suporte Técnico</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mockup Atendimento -->
+                    <div class="phone-mockup-container">
+                        <div class="phone-frame">
+                            <!-- Header do Chat -->
+                            <div class="chat-header">
+                                <div class="profile-info">
+                                    <div class="profile-avatar atendimento">
+                                        <img src="assets/MascotePerfil.jpg" alt="Agente Zolka Atendimento" />
+                                    </div>
+                                    <div class="profile-details">
+                                        <h4>Zolka - Atendimento</h4>
+                                        <span class="status online">● Online</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Mensagens -->
+                            <div class="chat-messages">
+                                <div class="message received">
+                                    <p>Oi! Sou a Zolka 🤖 Como posso te ajudar hoje?</p>
+                                    <span class="time">15:20</span>
+                                </div>
+                                <div class="message sent">
+                                    <p>Quero saber sobre agentes de IA para minha empresa</p>
+                                    <span class="time">15:21</span>
+                                </div>
+                                <div class="message received">
+                                    <p>Ótimo! Quantos clientes vocês atendem por dia aproximadamente?</p>
+                                    <span class="time">15:22</span>
+                                </div>
+                                <div class="message sent">
+                                    <p>Uns 200 no WhatsApp</p>
+                                    <span class="time">15:23</span>
+                                </div>
+                                <div class="message received">
+                                    <p>Perfeito! Vou agendar uma demo personalizada. Que tal amanhã às 14h? 📅</p>
+                                    <span class="time">15:24</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Footer -->
+                            <div class="chat-footer">
+                                <span class="agent-type">Qualificação de Leads</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mockup Vendas -->
+                    <div class="phone-mockup-container">
+                        <div class="phone-frame highlighted">
+                            <!-- Header do Chat -->
+                            <div class="chat-header">
+                                <div class="profile-info">
+                                    <div class="profile-avatar vendas">
+                                        <img src="assets/MascotePerfil.jpg" alt="Agente Zolka Vendas" />
+                                    </div>
+                                    <div class="profile-details">
+                                        <h4>Zolka - Vendas</h4>
+                                        <span class="status online">● Online</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Mensagens -->
+                            <div class="chat-messages">
+                                <div class="message received">
+                                    <p>Olá Ricardo! 👋 Vejo que você está perdendo muitos leads após o horário comercial...</p>
+                                    <span class="time">21:30</span>
+                                </div>
+                                <div class="message sent">
+                                    <p>Exato! Como você sabe?</p>
+                                    <span class="time">21:31</span>
+                                </div>
+                                <div class="message received">
+                                    <p>Analisei seu funil. Só hoje foram 17 mensagens não respondidas. Que tal ter mais conversões? 🚀</p>
+                                    <span class="time">21:32</span>
+                                </div>
+                                <div class="message sent">
+                                    <p>Isso é possível mesmo?</p>
+                                    <span class="time">21:33</span>
+                                </div>
+                                <div class="message received">
+                                    <p>Garanto! 🎯 R$ 297/mês e em 7 dias você já vê resultado. Posso agendar uma demo agora?</p>
+                                    <span class="time">21:34</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Footer -->
+                            <div class="chat-footer">
+                                <span class="agent-type highlighted">Vendas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Section -->
+                <div class="time-funcionarios-cta" data-aos="fade-up" data-aos-delay="400">
+                    <div class="cta-content">
+                        <h3 class="cta-title">Pronto para ter seu funcionario de IA?</h3>
+                        <p class="cta-description">
+                         Trabalha 24/7 sem pausa, sem férias e sem salário.
+                        </p>
+                        <a href="https://wa.me/5524920041669?text=Olá! Quero ter meu funcionário de IA com a Zolka!" 
+                           class="btn-cta-time" target="_blank">
+                            Quero meu funcionário de IA
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integrações Section -->
+    <section class="integracoes-section">
+        <div class="section-container">
+            <div class="integracoes-content">
+                <!-- Header da Seção -->
+                <div class="integracoes-header" data-aos="fade-up">
+                    <span class="section-tag">INTEGRAÇÕES</span>
+                    <h2 class="section-title">
+                        <span class="highlight-text">Integre</span> seu funcionário de IA onde quiser
+                    </h2>
+                    <p class="section-description">
+                        Automatize processos onde quer que seus clientes estejam. 
+                        Conecte a Zolka ao seu site, WhatsApp, Instagram ou 
+                        qualquer outro canal por meio de integração via API
+                    </p>
+                    <a href="https://wa.me/5524920041669?text=Olá! Quero saber mais sobre as integrações da Zolka!" 
+                       class="btn-cta-integracoes" target="_blank">
+                        Começar agora →
+                    </a>
+                </div>
+
+                <!-- Grid de Integrações -->
+                <div class="integracoes-grid">
+                    <div class="carousel-track">
+                    <!-- WhatsApp -->
+                    <div class="integracao-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card-icon whatsapp">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" fill="#25D366"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">WhatsApp</h3>
+                        <p class="card-subtitle">Nativo via QR Code</p>
+                    </div>
+
+                    <!-- WordPress -->
+                    <div class="integracao-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-icon wordpress">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="#21759B" stroke-width="2"/>
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="#21759B"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">WordPress (Site)</h3>
+                        <p class="card-subtitle">Nativo</p>
+                    </div>
+
+                    <!-- Planilhas e CRMs -->
+                    <div class="integracao-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card-icon excel">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="3" width="18" height="18" rx="2" stroke="#1D6F42" stroke-width="2" fill="#1D6F42"/>
+                                <path d="M8 8l8 8M16 8l-8 8" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Planilhas e CRMs</h3>
+                        <p class="card-subtitle">Via API</p>
+                    </div>
+
+                    <!-- WhatsApp Business -->
+                    <div class="integracao-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card-icon whatsapp-business">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" fill="#075E54"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">WhatsApp Business</h3>
+                        <p class="card-subtitle">Nativo via API</p>
+                    </div>
+
+                    <!-- Manychat -->
+                    <div class="integracao-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="card-icon manychat">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2" y="4" width="20" height="16" rx="3" stroke="#9B59B6" stroke-width="2" fill="#9B59B6"/>
+                                <path d="M7 9h10M7 13h6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Manychat</h3>
+                        <p class="card-subtitle">Nativo</p>
+                    </div>
+
+                    <!-- Instagram -->
+                    <div class="integracao-card" data-aos="fade-up" data-aos-delay="600">
+                        <div class="card-icon instagram">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2" y="2" width="20" height="20" rx="5" stroke="url(#instagram-gradient)" stroke-width="2"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke="url(#instagram-gradient)" stroke-width="2"/>
+                                <path d="M17.5 6.5h.01" stroke="url(#instagram-gradient)" stroke-width="2"/>
+                                <defs>
+                                    <linearGradient id="instagram-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#405DE6"/>
+                                        <stop offset="25%" style="stop-color:#5851DB"/>
+                                        <stop offset="50%" style="stop-color:#833AB4"/>
+                                        <stop offset="75%" style="stop-color:#C13584"/>
+                                        <stop offset="100%" style="stop-color:#E1306C"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Instagram</h3>
+                        <p class="card-subtitle">Via Manychat</p>
+                    </div>
+
+                    <!-- Make -->
+                    <div class="integracao-card" data-aos="fade-up" data-aos-delay="700">
+                        <div class="card-icon make">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="3" width="18" height="18" rx="2" stroke="#6C57D8" stroke-width="2" fill="#6C57D8"/>
+                                <path d="M8 8h8v8H8V8z" fill="white"/>
+                                <path d="M10 10h4v4h-4v-4z" fill="#6C57D8"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Make</h3>
+                        <p class="card-subtitle">Nativo</p>
+                    </div>
+
+                    <!-- Google Calendar -->
+                    <div class="integracao-card" data-aos="fade-up" data-aos-delay="800">
+                        <div class="card-icon google-calendar">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="4" width="18" height="18" rx="2" stroke="#4285F4" stroke-width="2" fill="white"/>
+                                <rect x="3" y="4" width="18" height="6" rx="2" fill="#4285F4"/>
+                                <path d="M8 2v4M16 2v4" stroke="#666" stroke-width="2" stroke-linecap="round"/>
+                                <text x="12" y="18" text-anchor="middle" fill="#4285F4" font-size="8" font-weight="bold">31</text>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Google Calendar</h3>
+                        <p class="card-subtitle">Nativo</p>
+                    </div>
+
+                    <!-- E em qualquer lugar -->
+                    <div class="integracao-card special" data-aos="fade-up" data-aos-delay="900">
+                        <div class="card-icon api">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="3" stroke="#F4D04E" stroke-width="2"/>
+                                <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1" stroke="#F4D04E" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">E em qualquer lugar!</h3>
+                        <p class="card-subtitle">Via API</p>
+                    </div>
+
+                    <!-- Duplicar cards para efeito infinito -->
+                    <!-- WhatsApp -->
+                    <div class="integracao-card carousel-duplicate">
+                        <div class="card-icon whatsapp">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" fill="#25D366"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">WhatsApp</h3>
+                        <p class="card-subtitle">Nativo via QR Code</p>
+                    </div>
+
+                    <!-- WordPress -->
+                    <div class="integracao-card carousel-duplicate">
+                        <div class="card-icon wordpress">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="#21759B" stroke-width="2"/>
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="#21759B"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">WordPress (Site)</h3>
+                        <p class="card-subtitle">Nativo</p>
+                    </div>
+
+                    <!-- Planilhas e CRMs -->
+                    <div class="integracao-card carousel-duplicate">
+                        <div class="card-icon excel">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="3" width="18" height="18" rx="2" stroke="#1D6F42" stroke-width="2" fill="#1D6F42"/>
+                                <path d="M8 8l8 8M16 8l-8 8" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Planilhas e CRMs</h3>
+                        <p class="card-subtitle">Via API</p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Background Effects -->
+    <div class="bg-lights">
+        <div class="light-point" style="top: 10%; left: 10%; animation-delay: 0s;"></div>
+        <div class="light-point" style="top: 20%; right: 15%; animation-delay: 1s;"></div>
+        <div class="light-point" style="bottom: 30%; left: 20%; animation-delay: 2s;"></div>
+        <div class="light-point" style="bottom: 10%; right: 10%; animation-delay: 3s;"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- Logo e Descrição -->
+                <div class="footer-brand" data-aos="fade-up" data-aos-duration="600">
+                    <div class="footer-logo">
+                        <img src="assets/LogoNoBackground.png" alt="ZolkaTECH" class="footer-logo-img">
+                    </div>
+                    <p class="footer-description">
+                        Especializados em agentes de IA, sites e soluções que geram resultados.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/zolkatech/" class="social-link" aria-label="Instagram" target="_blank" rel="noopener">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/zolka-tech-b61189378" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="2"/>
+                                <rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Links Rápidos -->
+                <div class="footer-links" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
+                    <h4 class="footer-heading">Navegação</h4>
+                    <ul class="footer-nav">
+                        <li><a href="index.html" class="footer-link">Home</a></li>
+                        <li><a href="index.html#servicos" class="footer-link">Agentes IA</a></li>
+                        <li><a href="index.html#sobre" class="footer-link">Sobre</a></li>
+                        <li><a href="index.html#hub-solucoes" class="footer-link">Hub de Soluções</a></li>
+                        <li><a href="portfolio.html" class="footer-link">Portfólio</a></li>
+                        <li><a href="index.html#contato" class="footer-link">Contato</a></li>
+                    </ul>
+                </div>
+
+                <!-- Serviços -->
+                <div class="footer-services" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
+                    <h4 class="footer-heading">Serviços</h4>
+                    <ul class="footer-nav">
+                        <li><a href="index.html#servicos" class="footer-link">Agentes de IA</a></li>
+                        <li><a href="index.html#hub-solucoes" class="footer-link">Sites & Landing Pages</a></li>
+                        <li><a href="index.html#hub-solucoes" class="footer-link">Tráfego Pago</a></li>
+                        <li><a href="index.html#hub-solucoes" class="footer-link">Design & Branding</a></li>
+                        <li><a href="index.html#hub-solucoes" class="footer-link">Redes Sociais</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contato -->
+                <div class="footer-contact" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
+                    <h4 class="footer-heading">Contato</h4>
+                    <div class="footer-contact-info">
+                        <div class="contact-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2"/>
+                                <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <span>zolka.tech@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <span>+55 (24) 92004-1669</span>
+                        </div>
+                        <div class="contact-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <span>Resende, RJ</span>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/5524920041669?text=Olá! Gostaria de conhecer o Agente Zolka." target="_blank" class="footer-cta-button">
+                        <span>Começar Projeto</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 17l10-10" stroke="currentColor" stroke-width="2"/>
+                            <path d="M7 7h10v10" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="footer-container">
+                <div class="footer-bottom-content">
+                    <p class="footer-copyright">
+                        © 2025 Zolka. Todos os direitos reservados.
+                    </p>
+                    <div class="footer-bottom-links">
+                        <a href="politica-privacidade.html" class="footer-bottom-link">Política de Privacidade</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="index.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+</html>
