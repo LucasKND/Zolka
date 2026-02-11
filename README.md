@@ -33,6 +33,6 @@ O site foi projetado para servir como o centro da autoridade digital da empresa,
 ---
 
 ## 🔗 Link do Projeto
-https://lucasknd.github.io/Zolka/
+(https://lucasknd.github.io/Site-Institucional-Zolka/)
 
 ---
